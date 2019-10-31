@@ -1,11 +1,11 @@
 import React from 'react';
-// "..src/images/asteroid-icon.jpeg"
-// import '../../images/asteroid-icon.jpeg'
+import logo from '../../images/moon-icon.png'
+
 export const Header = () => {
   return (
     <header>
       <h1> Space Insights </h1>
-      <img src="../../images/apod.jpg" alt="A grey asteroid logo"/>
+      <img src={logo} alt="A grey asteroid logo" className="logo"/>
     </header>
   )
 }

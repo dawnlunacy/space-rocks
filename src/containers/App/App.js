@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 // import { connect } from 'react-redux'
-// import Classname from './Classname';
+import { Header } from '../Header/Header';
 // import Funcname from '../Funcname/Funcname';
 import './App.css';
 
@@ -19,8 +19,8 @@ export class App extends Component {
   
   render() {
     return (
-      <div>
-        Return something
+      <div className = "App">
+        <Header />
       </div>
     )
   }

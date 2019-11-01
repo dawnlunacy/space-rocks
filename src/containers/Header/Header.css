@@ -1,0 +1,18 @@
+.main-header {
+  background-color: #011115;
+  position: absolute;
+  width: 100vw;
+  height:20vh;
+}
+
+h1 {
+  margin: 5px;
+  color: white;
+  display: inline;
+  text-align: center;
+}
+
+.logo {
+  float: left;
+  margin-top: -42px;
+}

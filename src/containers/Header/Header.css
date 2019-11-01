@@ -1,0 +1,30 @@
+.main-header {
+  background-color: #011115;
+  position: relative;
+  width: 100vw;
+  height:20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 5px;
+  color: white;
+  display: inline;
+  text-align: center;
+}
+
+.logo {
+  float: left;
+}
+
+h2 {
+  color: white;
+  display: flex;
+}
+
+.date {
+  margin: 10px;
+  align-self: center;
+}

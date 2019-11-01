@@ -1,6 +1,6 @@
 .main-header {
   background-color: #011115;
-  position: absolute;
+  position: relative;
   width: 100vw;
   height:20vh;
   display: flex;

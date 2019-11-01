@@ -1,0 +1,13 @@
+.main-nav {
+  background-color: #111A1C;
+}
+
+.asteroid-btn {
+  background-color: #90B9B3;
+  color: white;
+  font-size: 2em;
+  border-radius: 15px;
+  height: 50px;
+  width: 150px;
+  margin: 5px;
+}

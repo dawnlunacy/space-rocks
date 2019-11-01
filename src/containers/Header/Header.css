@@ -3,6 +3,9 @@
   position: absolute;
   width: 100vw;
   height:20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 h1 {
@@ -14,9 +17,11 @@ h1 {
 
 .logo {
   float: left;
-  margin-top: -42px;
 }
 
 h2 {
   color: white;
+  display: flex;
+  align-self: center;
+  margin: 10px;
 }

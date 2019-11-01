@@ -8,6 +8,13 @@ export const findTodaysDate = () =>{
 }
 
 export const formatTodaysDate = (stringDate) => {
-  let formatDate = new Date(stringDate).toString().split(' ').slice(1,4 ).join(' ')
+  let formatDate = new Date(stringDate).toString().split(' ').slice(1, 4).join(' ')
   return formatDate
+}
+
+export const findDay = () => {
+  let today = findTodaysDate();
+  let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let day = weekday[new Date(today).getDay()]
+  return day
 }

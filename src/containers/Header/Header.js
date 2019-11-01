@@ -11,7 +11,7 @@ export const Header = () => {
     <header className="main-header">
       <img src={logo} alt="A grey asteroid logo" className="logo"/>
       <h1> Space Insights </h1>
-      <div>
+      <div className="date">
       <h2> { findDay() }</h2>
       <h2> { formatTodaysDate(findTodaysDate()) }</h2>
       </div>

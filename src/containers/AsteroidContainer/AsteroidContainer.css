@@ -1,6 +1,7 @@
 
 .asteroid-container-nav {
   background-color: #212728;
+  min-height: 10vh;
 }
 
 p {

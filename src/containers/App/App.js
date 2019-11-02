@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
-import { fetchAPOD } from '../../utils/apiCalls'
+import { fetchAPOD, fetchNEO } from '../../utils/apiCalls'
+
 // import Funcname from '../Funcname/Funcname';
 import './App.css';
 
@@ -18,24 +19,18 @@ export class App extends Component {
 
   componentDidMount() {
     this.getApod();
+    fetchNEO()
   }
   
   getApod = async() => {
     const backgroundImg = await fetchAPOD();
-    console.log("HMM", backgroundImg)
-    // const mainStyle = {
-    //   backgroundImage:`url(${backgroundImg})`,
-    //   backgroundSize: 'cover',
-    //   background: 'no-repeat',
-    //   backgroundPosition: 'center center'
-    // }
-    const mainStyle2 = {
+   
+    const mainStyle = {
       backgroundImage:`url(${backgroundImg})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 100%',
     }
-    this.setState({image: mainStyle2})
-    console.log("IMAGE", this.state.image)
+    this.setState({image: mainStyle})
 }
   
   render() {

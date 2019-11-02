@@ -1,9 +1,14 @@
-export const findTodaysDate = () =>{
-  let today = new Date();
+export const findTodaysDate = (day) => {
+  let today;
+  if (day === undefined) {
+    today = new Date();
+  } else {
+    today = new Date(day)
+  }
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = today.getFullYear();
-  let todayFormat = yyyy + '-' + mm + '-' + dd;
+  let todayFormat = yyyy + '/' + mm + '/' + dd;
   return todayFormat
 }
 
@@ -18,3 +23,17 @@ export const findDay = () => {
   let day = weekday[new Date(today).getDay()]
   return day
 }
+
+export const findEndOfWeek = (startDate) => {
+  let startingDate;
+  if (startDate === undefined) {
+   startingDate = new Date()
+  } else {
+    startingDate = new Date(startDate);
+  }
+  const endDateRaw = startingDate.setDate(startingDate.getDate() + 7)
+  const endingDate = findTodaysDate(endDateRaw)
+
+  return endingDate
+}
+

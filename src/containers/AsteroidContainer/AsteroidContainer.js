@@ -11,7 +11,7 @@ export const AsteroidContainer = ({ image }) => {
       <p> InputDate </p>
       </nav>
       <section className="asteroid-main-section" style={ image }>
-      <p> "ASTEROIDS" </p>
+      <p> NEOs </p>
       </section>
     </main>
   )

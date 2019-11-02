@@ -13,7 +13,7 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      image: null
+      apod: null
     }
   }
 
@@ -24,13 +24,13 @@ export class App extends Component {
   
   getApod = async() => {
     const backgroundImg = await fetchAPOD();
-   
+
     const mainStyle = {
       backgroundImage:`url(${backgroundImg})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 100%',
     }
-    this.setState({image: mainStyle})
+    this.setState({apod: mainStyle})
 }
   
   render() {
@@ -38,7 +38,7 @@ export class App extends Component {
       <div className = "App">
         <Header />
         <Nav />
-        <AsteroidContainer image={this.state.image}/>
+        <AsteroidContainer image={this.state.apod}/>
       </div>
     )
   }

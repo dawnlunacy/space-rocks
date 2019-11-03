@@ -5,7 +5,7 @@ import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
-import { formatDateForFetch, findEndOfWeek } from '../../utils/helpers';
+import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
 import { setNeos } from '../../actions';
 
 import './App.css';
@@ -24,8 +24,11 @@ export class App extends Component {
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
     const neos = await fetchNEO(defaultStartDate, defaultEndDate);
+
     setNeos(neos)
+    const clean = cleanNeoData(neos)
     console.log("NEOS", neos )
+    console.log("cleanNeos", clean)
 
   }
   

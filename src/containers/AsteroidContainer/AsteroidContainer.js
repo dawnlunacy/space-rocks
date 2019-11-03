@@ -4,6 +4,7 @@ import '../AsteroidContainer/AsteroidContainer.css';
 
 export const AsteroidContainer = ({ image, neos }) => {
   console.log("neow", neos)
+  // console.log("neowKEY", Object.keys(neos))
 
   return (
     <main>
@@ -26,7 +27,7 @@ export const AsteroidContainer = ({ image, neos }) => {
 export const mapStateToProps = state => {
   console.log("MEOW", state.neos)
   return ({
-  neos: state.neos.near_earth_objects   
+  neos: state.neos.near_earth_objects
   })
 }
 

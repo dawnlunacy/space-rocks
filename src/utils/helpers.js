@@ -51,3 +51,52 @@ export const formatDateForFetch = (date) => {
   return todayFormat
 }
 
+export const isEmpty = (obj) => {
+  for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+          return false;
+  }
+  return true;
+}
+
+export const cleanNeoData = (neos) => {
+  let neoKeyDates = Object.keys(neos.near_earth_objects);
+  return neoKeyDates.reduce((acc, currentDateKey) => {
+    neos.near_earth_objects[currentDateKey].forEach(currentNeo => {
+      if (isEmpty(currentNeo)) {
+        return 
+      } else {
+        if ( !acc[currentDateKey]) {
+          acc[currentDateKey] = []
+        } 
+
+        let infoToKeep = {
+          id: currentNeo.id,
+          name: currentNeo.name,
+          nasaUrl: currentNeo.nasa_jpl_url,
+          isPotentiallyHazardous: currentNeo.is_potentially_hazardous_asteroid,
+          estimatedDiameter: currentNeo.estimated_diameter.feet,
+          closeApproachData: currentNeo.close_approach_data.reduce((acc, closeData) => {
+
+            const cleanApproachData = {
+              closeApproachDate: closeData.close_approach_date,
+              relativeVelocity: closeData.relative_velocity.miles_per_hour,
+              missEarthDistance: closeData.miss_distance.miles,
+            }
+            
+            acc.push(cleanApproachData);
+            return acc
+          }, [])
+        }
+
+        acc[currentDateKey].push(infoToKeep)
+
+        }
+    })
+
+    return acc
+  }, {})
+}
+
+
+

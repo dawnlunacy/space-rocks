@@ -6,7 +6,7 @@ import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { setNeos, setTotalNeos, setPrevWeek, setNextWeek } from '../../actions';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate } from '../../actions';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ export class App extends Component {
   }
 
   async componentDidMount() {
-    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek } = this.props;
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isloadingNeos} = this.props;
     this.getApod();
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
@@ -29,6 +29,7 @@ export class App extends Component {
     setTotalNeos(neos.element_count)
     setNextWeek(neos.links.next)
     setNeos(cleanNeos)
+    isloadingNeos(false)
   }
   
   getApod = async() => {
@@ -40,31 +41,38 @@ export class App extends Component {
       backgroundSize: '100% 100%',
     }
     this.setState({apod: mainStyle})
-}
+  }
+
+  displayDateSelectedNeos = (e) => {
+    e.preventDefault();
+    const { setCurrentNeoDate } = this.props;
+    setCurrentNeoDate(e.target.id)
+  }
   
   render() {
+    const { loadingNeos } = this.props;
+   
     return (
       <div className = "App">
         <Header />
         <Nav />
-        <AsteroidContainer image={this.state.apod}/>
+        {!loadingNeos && <AsteroidContainer image={this.state.apod} displayDateSelectedNeos={this.displayDateSelectedNeos}/> }
       </div>
     )
   }
 }
 
-// export default App;
+export const mapStateToProps = (state) => ({
+  loadingNeos: state.loadingNeos
+})
 
-
-// const mapStateToProps = (state) => ({
-//   neos: state.neos
-// })
-
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setNeos: neos => dispatch (setNeos(neos)),
   setTotalNeos: totalNeos => dispatch (setTotalNeos(totalNeos)),
   setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl)),
-  setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl))
+  setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl)),
+  isloadingNeos: bool => dispatch(updateLoading(bool)),
+  setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date))
   })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

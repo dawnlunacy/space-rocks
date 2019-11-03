@@ -1,0 +1,31 @@
+h4 {
+    letter-spacing: 2px;
+    padding: 0 15px 0 15px;
+    margin: 0;
+}
+
+.neo-daily-display {
+  align-items: center;
+  background-color: rgba(18, 27, 26, 0.918);
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  height: 55px;
+  justify-content: center;
+  margin: 10px;
+  width: 85%;
+}
+
+.neo-date {
+  width: 15%;
+}
+
+.neo-total-for-date {
+  width: 60%
+}
+
+.see-all-neos-btn {
+  width: 10%;
+  border-radius: 50px;
+  margin: 10px;
+}

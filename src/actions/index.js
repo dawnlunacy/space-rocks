@@ -17,3 +17,13 @@ export const setNextWeek = nextWeekFetchUrl => ({
   type: "SET_NEXT_WEEK",
   nextWeekFetchUrl
 });
+
+export const updateLoading = bool => ({
+  type: "UPDATE_LOADING",
+  bool
+});
+
+export const setCurrentNeoDate = date => ({
+  type: "SET_CURRENT_NEO_DATE",
+  date
+});

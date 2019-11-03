@@ -1,11 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../AsteroidContainer/AsteroidContainer.css';
+import Neos from '../Neos/Neos';
 
-export const AsteroidContainer = ({ image, neos }) => {
-  console.log("neow", neos)
-  // console.log("neowKEY", Object.keys(neos))
-
+export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos}) => {
+ 
+    const dateKeys = Object.keys(neos)
+    var neoInfoToDisplay = dateKeys.map(currentDate => {
+    const date = currentDate;
+    const totalNeosOnDate = neos[currentDate].length;
+    return <Neos 
+      key={date}
+      date={date}
+      totalNeosOnDate={totalNeosOnDate}
+      displayDateSelectedNeos={displayDateSelectedNeos}
+      />
+    })
+  
+  
   return (
     <main>
       <nav className="asteroid-container-nav">
@@ -13,24 +25,17 @@ export const AsteroidContainer = ({ image, neos }) => {
       <p> InputDate </p>
       </nav>
       <section className="asteroid-main-section" style={ image }>
-      {/* <p> {neos} </p> */}
-      <p> HI </p>
+        <article className="neo-weekday"> 
+        {neoInfoToDisplay} 
+        </article>
       </section>
     </main>
   )
 }
 
-// export const mapStateToProps = state => ({
-//   neos: state.neos.near_earth_objects
-// });
+export const mapStateToProps = state => ({
+  neos: state.neos
+});
 
-export const mapStateToProps = state => {
-  console.log("MEOW", state.neos)
-  return ({
-  neos: state.neos.near_earth_objects
-  })
-}
 
 export default connect(mapStateToProps, null)(AsteroidContainer);
-
-// neosTotal: state.neos.element_count,

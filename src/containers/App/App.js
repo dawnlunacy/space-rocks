@@ -5,9 +5,8 @@ import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
-import { findTodaysDate, findEndOfWeek, formatTodaysDate, findDay } from '../../utils/helpers';
+import { findTodaysDate, findEndOfWeek, formatTodaysDate, findDay, formatDateForFetch } from '../../utils/helpers';
 
-// import Funcname from '../Funcname/Funcname';
 import './App.css';
 
 export class App extends Component {
@@ -26,6 +25,7 @@ export class App extends Component {
     console.log("formatting", formatTodaysDate(findTodaysDate()))
     console.log("day", findDay())
     console.log("startDateFormatting", findEndOfWeek())
+    console.log("endDate", formatDateForFetch());
 
   }
   

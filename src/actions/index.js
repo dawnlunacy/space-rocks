@@ -17,3 +17,8 @@ export const setNextWeek = nextWeekFetchUrl => ({
   type: "SET_NEXT_WEEK",
   nextWeekFetchUrl
 });
+
+export const updateLoading = bool => ({
+  type: "UPDATE_LOADING",
+  bool
+})

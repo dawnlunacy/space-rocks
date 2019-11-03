@@ -66,10 +66,7 @@ export const cleanNeoData = (neos) => {
         if ( !acc[currentDateKey]) {
           acc[currentDateKey] = []
         } 
-        let estimatedDiameterMinNotRounded = currentNeo.estimated_diameter.feet.estimated_diameter_min;
-        let estimatedDiameterRounded = estimatedDiameterMinNotRounded.toFixed(2)
-        console.log("ROUNDED?", estimatedDiameterRounded)
-
+       
         let infoToKeep = {
           id: currentNeo.id,
           name: currentNeo.name,
@@ -81,8 +78,8 @@ export const cleanNeoData = (neos) => {
 
             const cleanApproachData = {
               closeApproachDate: closeData.close_approach_date,
-              relativeVelocity: closeData.relative_velocity.miles_per_hour,
-              missEarthDistance: closeData.miss_distance.miles,
+              relativeVelocity: parseFloat(closeData.relative_velocity.miles_per_hour).toFixed(2),
+              missEarthDistance: parseFloat(closeData.miss_distance.miles).toFixed(2),
             }
             
             acc.push(cleanApproachData);

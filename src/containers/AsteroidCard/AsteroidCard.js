@@ -15,7 +15,7 @@ export const AsteroidCard = ({id, name, nasaUrl, isPotentiallyHazardous, estimat
       <p> Estimated Diameter Max: {estimatedDiameterMax} Feet </p>
       <p> Relative Velocity: {relativeVelocity} Miles Per Hour</p>
       <p> Will Miss Earth by: {missEarthDistance} Miles </p>
-      <p> Link to Nasa: {nasaUrl} </p>
+      <a href={nasaUrl}> View NASA JPL DataBase for this NEO </a>
     </section>
     
   )

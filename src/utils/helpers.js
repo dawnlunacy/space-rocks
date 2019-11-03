@@ -66,6 +66,9 @@ export const cleanNeoData = (neos) => {
         if ( !acc[currentDateKey]) {
           acc[currentDateKey] = []
         } 
+        let estimatedDiameterMinNotRounded = currentNeo.estimated_diameter.feet.estimated_diameter_min;
+        let estimatedDiameterRounded = estimatedDiameterMinNotRounded.toFixed(2)
+        console.log("ROUNDED?", estimatedDiameterRounded)
 
         let infoToKeep = {
           id: currentNeo.id,

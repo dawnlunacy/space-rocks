@@ -1,36 +1,45 @@
 
 import React, { Component } from 'react';
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
-import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
-import { fetchAPOD, fetchNEO } from '../../utils/apiCalls'
+import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
+import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
+import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek } from '../../actions';
 
-// import Funcname from '../Funcname/Funcname';
 import './App.css';
 
 export class App extends Component {
   constructor() {
     super();
     this.state = {
-      image: null
+      apod: null
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek } = this.props;
     this.getApod();
-    fetchNEO()
+    const defaultStartDate = formatDateForFetch();
+    const defaultEndDate = findEndOfWeek(defaultStartDate)
+    const neos = await fetchNEO(defaultStartDate, defaultEndDate);
+    const cleanNeos = cleanNeoData(neos);
+    setPrevWeek(neos.links.prev)
+    setTotalNeos(neos.element_count)
+    setNextWeek(neos.links.next)
+    setNeos(cleanNeos)
   }
   
   getApod = async() => {
     const backgroundImg = await fetchAPOD();
-   
+
     const mainStyle = {
       backgroundImage:`url(${backgroundImg})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 100%',
     }
-    this.setState({image: mainStyle})
+    this.setState({apod: mainStyle})
 }
   
   render() {
@@ -38,25 +47,24 @@ export class App extends Component {
       <div className = "App">
         <Header />
         <Nav />
-        <AsteroidContainer image={this.state.image}/>
+        <AsteroidContainer image={this.state.apod}/>
       </div>
     )
   }
 }
 
-export default App;
+// export default App;
 
 
 // const mapStateToProps = (state) => ({
-//   //needs to return an object
-//   //the properties in the object become available in props
+//   neos: state.neos
 // })
 
-// const mapDispatchToProps = dispatch => ({
-//   //makes updates to global state
-//   //returns an object
-//   //define a methods that dispatch an action
-//   methodName : ( arg ) => dispatch( methodFromStore(arg) ),
-//   })
+const mapDispatchToProps = dispatch => ({
+  setNeos: neos => dispatch (setNeos(neos)),
+  setTotalNeos: totalNeos => dispatch (setTotalNeos(totalNeos)),
+  setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl)),
+  setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl))
+  })
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

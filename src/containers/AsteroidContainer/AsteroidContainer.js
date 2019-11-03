@@ -4,11 +4,11 @@ import '../AsteroidContainer/AsteroidContainer.css';
 import Neos from '../Neos/Neos';
 import { isEmpty } from '../../utils/helpers';
 
-export const AsteroidContainer = ({ image, neos }) => {
+export const AsteroidContainer = ({ image, neos}) => {
   console.log("neow", isEmpty(neos))
-  if (isEmpty(neos)) {
-      return 
-  } else {
+  console.log("neo in Asteroid Container", neos)
+
+  
     const dateKeys = Object.keys(neos)
     var neoInfoToDisplay = dateKeys.map(currentDate => {
     const date = currentDate;
@@ -18,7 +18,7 @@ export const AsteroidContainer = ({ image, neos }) => {
       totalNeosOnDate={totalNeosOnDate}
       />
     })
-  }
+  
   
   return (
     <main>
@@ -34,16 +34,16 @@ export const AsteroidContainer = ({ image, neos }) => {
   )
 }
 
-// export const mapStateToProps = state => ({
-//   neos: state.neos.near_earth_objects
-// });
+export const mapStateToProps = state => ({
+  neos: state.neos
+});
 
-export const mapStateToProps = state => {
-  console.log("MEOW", state.neos)
-  return ({
-  neos: state.neos.near_earth_objects
-  })
-}
+// export const mapStateToProps = state => {
+//   console.log("MEOW", state.neos)
+//   return ({
+//   neos: state.neos.near_earth_objects
+//   })
+// }
 
 export default connect(mapStateToProps, null)(AsteroidContainer);
 

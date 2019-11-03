@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
-import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
+import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek } from '../../utils/helpers';
 import { setNeos } from '../../actions';

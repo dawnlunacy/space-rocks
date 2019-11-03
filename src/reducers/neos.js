@@ -1,4 +1,4 @@
-export const neos = (state = null, action) => {
+export const neos = (state = {}, action) => {
   switch(action.type) {
     case 'SET_NEOS': 
       return action.neos

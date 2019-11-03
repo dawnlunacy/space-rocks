@@ -1,4 +1,4 @@
-export const getNeos = neos => ({
-  type: "GET_NEOS",
+export const setNeos = neos => ({
+  type: "SET_NEOS",
   neos
 });

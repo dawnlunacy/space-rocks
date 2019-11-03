@@ -1,11 +1,12 @@
 
 import React, { Component } from 'react';
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
-import { findTodaysDate, formatDateForFetch, findEndOfWeek } from '../../utils/helpers';
+import { formatDateForFetch, findEndOfWeek } from '../../utils/helpers';
+import { setNeos } from '../../actions';
 
 import './App.css';
 
@@ -18,12 +19,13 @@ export class App extends Component {
   }
 
   async componentDidMount() {
+    const { setNeos } = this.props;
     this.getApod();
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
     const neos = await fetchNEO(defaultStartDate, defaultEndDate);
+    setNeos(neos)
     console.log("NEOS", neos )
-    console.log("today", findTodaysDate())
 
   }
   
@@ -49,19 +51,15 @@ export class App extends Component {
   }
 }
 
-export default App;
+// export default App;
 
 
 // const mapStateToProps = (state) => ({
-//   //needs to return an object
-//   //the properties in the object become available in props
+//   neos: state.neos
 // })
 
-// const mapDispatchToProps = dispatch => ({
-//   //makes updates to global state
-//   //returns an object
-//   //define a methods that dispatch an action
-//   methodName : ( arg ) => dispatch( methodFromStore(arg) ),
-//   })
+const mapDispatchToProps = dispatch => ({
+  setNeos: neos => dispatch (setNeos(neos))
+  })
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

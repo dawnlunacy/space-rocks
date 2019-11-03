@@ -8,7 +8,6 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
 
   if (currentNeoDate !== '') {
     var asteroidCardsToDisply = neos[currentNeoDate].map(currentNeo => {
-      console.log("in", currentNeo)
       return <AsteroidCard 
         key={currentNeo.id}
         id={currentNeo.id}
@@ -44,7 +43,7 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
         <article className="neo-weekday"> 
         {neoInfoToDisplay} 
         </article>
-        <div>
+        <div className="asteroid-detailed-info">
           {asteroidCardsToDisply}
         </div>
       </section>

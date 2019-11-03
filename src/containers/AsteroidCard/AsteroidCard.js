@@ -3,19 +3,18 @@ import './AsteroidCard.css';
 import { connect } from 'react-redux';
 
 export const AsteroidCard = ({id, name, nasaUrl, isPotentiallyHazardous, estimatedDiameterMin, estimatedDiameterMax, closeApproachDate, relativeVelocity, missEarthDistance}) => {
- console.log("why", typeof estimatedDiameterMin)
   
   return (
     <section className="asteroid-card">
-      <p> ID: {id} </p>
-      <p> Name: {name} </p>
-      <p> Close Approach Date: {closeApproachDate} </p> 
-      <p> Is Potentially Hazardous: {isPotentiallyHazardous} </p>
-      <p> Estimated Diameter Min: {estimatedDiameterMin} Feet </p>
-      <p> Estimated Diameter Max: {estimatedDiameterMax} Feet </p>
-      <p> Relative Velocity: {relativeVelocity} Miles Per Hour</p>
-      <p> Will Miss Earth by: {missEarthDistance} Miles </p>
-      <a href={nasaUrl}> View NASA JPL DataBase for this NEO </a>
+      <p className="p-ac"> ID: {id} </p>
+      <p className="p-ac"> Name: {name} </p>
+      <p className="p-ac"> Close Approach Date: {closeApproachDate} </p> 
+      <p className="p-ac"> Is Potentially Hazardous: {isPotentiallyHazardous} </p>
+      <p className="p-ac"> Estimated Diameter Min: {estimatedDiameterMin} Feet </p>
+      <p className="p-ac"> Estimated Diameter Max: {estimatedDiameterMax} Feet </p>
+      <p className="p-ac"> Relative Velocity: {relativeVelocity} Miles Per Hour</p>
+      <p className="p-ac"> Will Miss Earth by: {missEarthDistance} Miles </p>
+      <a href={nasaUrl} className="p-ac-link"> View in NASA database  </a>
     </section>
     
   )

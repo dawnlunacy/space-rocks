@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import '../AsteroidContainer/AsteroidContainer.css';
 import Neos from '../Neos/Neos';
 
-export const AsteroidContainer = ({ image, neos}) => {
+export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos}) => {
  
     const dateKeys = Object.keys(neos)
     var neoInfoToDisplay = dateKeys.map(currentDate => {
@@ -13,6 +13,7 @@ export const AsteroidContainer = ({ image, neos}) => {
       key={date}
       date={date}
       totalNeosOnDate={totalNeosOnDate}
+      displayDateSelectedNeos={displayDateSelectedNeos}
       />
     })
   

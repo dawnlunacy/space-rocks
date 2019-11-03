@@ -21,4 +21,9 @@ export const setNextWeek = nextWeekFetchUrl => ({
 export const updateLoading = bool => ({
   type: "UPDATE_LOADING",
   bool
-})
+});
+
+export const setCurrentNeoDate = date => ({
+  type: "SET_CURRENT_NEO_DATE",
+  date
+});

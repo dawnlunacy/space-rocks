@@ -5,7 +5,7 @@ import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
-import { formatDateForFetch, findEndOfWeek, cleanNeoData, isEmpty } from '../../utils/helpers';
+import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
 import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading } from '../../actions';
 
 import './App.css';
@@ -41,35 +41,26 @@ export class App extends Component {
       backgroundSize: '100% 100%',
     }
     this.setState({apod: mainStyle})
-}
+  }
   
   render() {
-    const { loadingNeos, neos } = this.props;
-    console.log("line 48 app", !isEmpty(neos))
-    console.log("line 49 app", neos)
-
-
+    const { loadingNeos } = this.props;
+   
     return (
       <div className = "App">
         <Header />
         <Nav />
-        console.log
-        {!loadingNeos && !isEmpty(neos) && <AsteroidContainer image={this.state.apod}/> }
+        {!loadingNeos && <AsteroidContainer image={this.state.apod}/> }
       </div>
     )
   }
 }
 
-// export default App;
-
-
-const mapStateToProps = (state) => ({
-  neos: state.neos,
+export const mapStateToProps = (state) => ({
   loadingNeos: state.loadingNeos
-
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setNeos: neos => dispatch (setNeos(neos)),
   setTotalNeos: totalNeos => dispatch (setTotalNeos(totalNeos)),
   setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl)),

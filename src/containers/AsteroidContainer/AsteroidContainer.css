@@ -13,3 +13,9 @@ p {
   height: 100vh;
   width: 100vw;
 }
+
+.neo-weekday {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

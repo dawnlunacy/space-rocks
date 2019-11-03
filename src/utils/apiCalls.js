@@ -11,8 +11,9 @@ export const fetchAPOD = async() => {
 }
 
 export const fetchNEO = async(startDate, endDate) => {
-  // const start_date = startDate || 
-  const defaultUrl = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2019-11-01&end_date=2019-11-08&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA';
+  console.log("inFetch1", startDate )
+  console.log("inFetch2", endDate)
+  const defaultUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA`;
   const response = await fetch(defaultUrl)
   if (response.ok) {
     const asteroidData = await response.json();

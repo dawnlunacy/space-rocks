@@ -5,7 +5,7 @@ import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import { AsteroidContainer } from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
-import { findTodaysDate, findEndOfWeek, formatTodaysDate, findDay, formatDateForFetch } from '../../utils/helpers';
+import { findTodaysDate, formatDateForFetch, findEndOfWeek } from '../../utils/helpers';
 
 import './App.css';
 
@@ -19,13 +19,11 @@ export class App extends Component {
 
   async componentDidMount() {
     this.getApod();
-    const neos = await fetchNEO();
+    const defaultStartDate = formatDateForFetch();
+    const defaultEndDate = findEndOfWeek(defaultStartDate)
+    const neos = await fetchNEO(defaultStartDate, defaultEndDate);
     console.log("NEOS", neos )
     console.log("today", findTodaysDate())
-    console.log("formatting", formatTodaysDate(findTodaysDate()))
-    console.log("day", findDay())
-    console.log("startDateFormatting", findEndOfWeek())
-    console.log("endDate", formatDateForFetch());
 
   }
   

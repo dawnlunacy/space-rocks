@@ -5,7 +5,6 @@ export const findTodaysDate = (day) => {
   } else {
     today = new Date(day)
   }
-  console.log("TodayTEST", today)
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = today.getFullYear();
@@ -33,7 +32,7 @@ export const findEndOfWeek = (startDate) => {
     startingDate = new Date(startDate);
   }
   const endDateRaw = startingDate.setDate(startingDate.getDate() + 7)
-  const endingDate = findTodaysDate(endDateRaw)
+  const endingDate = formatDateForFetch(endDateRaw)
 
   return endingDate
 }
@@ -45,14 +44,10 @@ export const formatDateForFetch = (date) => {
   } else {
     today = new Date(date)
   }
-  console.log("dayInHelpers", date)
-  // console.log("dayTest", new Date(date))
-  console.log("todayBug", today)
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = today.getFullYear();
   let todayFormat = yyyy + '-' + mm + '-' + dd;
   return todayFormat
-
 }
 

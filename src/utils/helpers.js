@@ -66,19 +66,20 @@ export const cleanNeoData = (neos) => {
         if ( !acc[currentDateKey]) {
           acc[currentDateKey] = []
         } 
-
+       
         let infoToKeep = {
           id: currentNeo.id,
           name: currentNeo.name,
           nasaUrl: currentNeo.nasa_jpl_url,
-          isPotentiallyHazardous: currentNeo.is_potentially_hazardous_asteroid,
-          estimatedDiameter: currentNeo.estimated_diameter.feet,
+          isPotentiallyHazardous: currentNeo.is_potentially_hazardous_asteroid.toString(),
+          estimatedDiameterMin: currentNeo.estimated_diameter.feet.estimated_diameter_min.toFixed(2),
+          estimatedDiameterMax: currentNeo.estimated_diameter.feet.estimated_diameter_max.toFixed(2),
           closeApproachData: currentNeo.close_approach_data.reduce((acc, closeData) => {
 
             const cleanApproachData = {
               closeApproachDate: closeData.close_approach_date,
-              relativeVelocity: closeData.relative_velocity.miles_per_hour,
-              missEarthDistance: closeData.miss_distance.miles,
+              relativeVelocity: parseFloat(closeData.relative_velocity.miles_per_hour).toFixed(2),
+              missEarthDistance: parseFloat(closeData.miss_distance.miles).toFixed(2),
             }
             
             acc.push(cleanApproachData);

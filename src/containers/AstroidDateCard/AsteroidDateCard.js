@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Neos.css';
+import './AsteroidDateCard.css';
 
-export const Neos = ({date, totalNeosOnDate, displayDateSelectedNeos}) => {
-
+export const AsteroidDateCard = ({date, totalNeosOnDate, displayDateSelectedNeos}) => {
+ 
   return (
     <section className="neo-daily-display">
       <h4 className="neo-date"> {date} </h4>
@@ -11,10 +11,11 @@ export const Neos = ({date, totalNeosOnDate, displayDateSelectedNeos}) => {
       <button className="see-all-neos-btn" id={date} onClick={(e) => displayDateSelectedNeos(e)}> See All </button>
     </section>
   )
-}
+};
 
 export const mapStateToProps = state => ({
-  neos: state.neos
-})
+  neos: state.neos,
+  currentNeoDate: state.currentNeoDate,
+});
 
-export default connect(mapStateToProps, null)(Neos)
+export default connect(mapStateToProps, null)(AsteroidDateCard)

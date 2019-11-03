@@ -12,3 +12,8 @@ export const setPrevWeek = prevWeekFetchUrl => ({
   type: "SET_PREV_WEEK",
   prevWeekFetchUrl
 });
+
+export const setNextWeek = nextWeekFetchUrl => ({
+  type: "SET_NEXT_WEEK",
+  nextWeekFetchUrl
+});

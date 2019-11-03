@@ -5,7 +5,7 @@ import Neos from '../Neos/Neos';
 
 export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos}) => {
  
-    const dateKeys = Object.keys(neos)
+    const dateKeys = Object.keys(neos);
     var neoInfoToDisplay = dateKeys.map(currentDate => {
     const date = currentDate;
     const totalNeosOnDate = neos[currentDate].length;
@@ -15,8 +15,7 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos}) => {
       totalNeosOnDate={totalNeosOnDate}
       displayDateSelectedNeos={displayDateSelectedNeos}
       />
-    })
-  
+    });
   
   return (
     <main>

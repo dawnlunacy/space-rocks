@@ -71,7 +71,7 @@ export const cleanNeoData = (neos) => {
           id: currentNeo.id,
           name: currentNeo.name,
           nasaUrl: currentNeo.nasa_jpl_url,
-          isPotentiallyHazardous: currentNeo.is_potentially_hazardous_asteroid,
+          isPotentiallyHazardous: currentNeo.is_potentially_hazardous_asteroid.toString(),
           estimatedDiameter: currentNeo.estimated_diameter.feet,
           closeApproachData: currentNeo.close_approach_data.reduce((acc, closeData) => {
 

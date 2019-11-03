@@ -3,10 +3,10 @@ import './AsteroidCard.css';
 import { connect } from 'react-redux';
 
 export const AsteroidCard = ({id, name, nasaUrl, isPotentiallyHazardous, estimatedDiameterMin, estimatedDiameterMax, closeApproachDate, relativeVelocity, missEarthDistance}) => {
- 
+ console.log("why", isPotentiallyHazardous)
   
   return (
-    <section>
+    <section className="asteroid-card">
       <p> ID: {id} </p>
       <p> Name: {name} </p>
       <p> Close Approach Date: {closeApproachDate} </p> 

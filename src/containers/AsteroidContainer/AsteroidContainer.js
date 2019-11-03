@@ -8,17 +8,18 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
 
   if (currentNeoDate !== '') {
     var asteroidCardsToDisply = neos[currentNeoDate].map(currentNeo => {
+      console.log("in", currentNeo)
       return <AsteroidCard 
         key={currentNeo.id}
         id={currentNeo.id}
         name={currentNeo.name}
         nasaUrl={currentNeo.nasaUrl}
-        isPotentiallyHazardous={false}
+        isPotentiallyHazardous={currentNeo.isPotentiallyHazardous}
         estimatedDiameterMin={currentNeo.estimatedDiameter.estimated_diameter_min}
-        estimatedDiameterMax={currentNeo.estimatedDiameter.estimate_diameter_max}
-        closeApproachDate={currentNeo.closeApproachData.closeApproachDate}
-        relativeVelocity={currentNeo.closeApproachData.relativeVelocity}
-        missEarthDistance={currentNeo.closeApproachData.missEarthDistance}/>
+        estimatedDiameterMax={currentNeo.estimatedDiameter.estimated_diameter_max}
+        closeApproachDate={currentNeo.closeApproachData[0].closeApproachDate}
+        relativeVelocity={currentNeo.closeApproachData[0].relativeVelocity}
+        missEarthDistance={currentNeo.closeApproachData[0].missEarthDistance}/>
     })
   }
     const dateKeys = Object.keys(neos);

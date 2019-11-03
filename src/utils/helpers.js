@@ -63,9 +63,6 @@ export const cleanNeoData = (neos) => {
   let neoKeyDates = Object.keys(neos.near_earth_objects);
   return neoKeyDates.reduce((acc, currentDateKey) => {
     neos.near_earth_objects[currentDateKey].forEach(currentNeo => {
-      if (isEmpty(currentNeo)) {
-        return 
-      } else {
         if ( !acc[currentDateKey]) {
           acc[currentDateKey] = []
         } 
@@ -91,7 +88,6 @@ export const cleanNeoData = (neos) => {
 
         acc[currentDateKey].push(infoToKeep)
 
-        }
     })
 
     return acc

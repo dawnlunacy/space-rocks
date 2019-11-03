@@ -24,16 +24,11 @@ export class App extends Component {
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
     const neos = await fetchNEO(defaultStartDate, defaultEndDate);
-
-    const clean = cleanNeoData(neos);
+    const cleanNeos = cleanNeoData(neos);
     setPrevWeek(neos.links.prev)
     setTotalNeos(neos.element_count)
     setNextWeek(neos.links.next)
-    setNeos(neos)
-
-    console.log("NEOS", neos )
-    console.log("cleanNeos", clean)
-
+    setNeos(cleanNeos)
   }
   
   getApod = async() => {

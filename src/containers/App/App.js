@@ -6,7 +6,7 @@ import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { setNeos } from '../../actions';
+import { setNeos, setTotalNeos, setPrevWeek } from '../../actions';
 
 import './App.css';
 
@@ -19,13 +19,20 @@ export class App extends Component {
   }
 
   async componentDidMount() {
-    const { setNeos } = this.props;
+    const { setNeos, setTotalNeos, setPrevWeek } = this.props;
     this.getApod();
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
     const neos = await fetchNEO(defaultStartDate, defaultEndDate);
-    const cleanNeos = cleanNeoData(neos);
-    setNeos(cleanNeos);
+
+    const clean = cleanNeoData(neos);
+    setPrevWeek(neos.links.prev)
+    setTotalNeos(neos.element_count)
+    setNeos(neos)
+
+    console.log("NEOS", neos )
+    console.log("cleanNeos", clean)
+
   }
   
   getApod = async() => {
@@ -58,7 +65,9 @@ export class App extends Component {
 // })
 
 const mapDispatchToProps = dispatch => ({
-  setNeos: neos => dispatch (setNeos(neos))
+  setNeos: neos => dispatch (setNeos(neos)),
+  setTotalNeos: totalNeos => dispatch (setTotalNeos(totalNeos)),
+  setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl))
   })
 
 export default connect(null, mapDispatchToProps)(App);

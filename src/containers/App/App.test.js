@@ -1,7 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
+import { App, mapStateToProps, mapDispatchToProps } from './App';
+import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 
+jest.mock('../../utils/apiCalls')
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);

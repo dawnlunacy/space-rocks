@@ -6,6 +6,7 @@ import { nextWeekUrl } from './nextWeekUrl';
 import { loadingNeos } from './loadingNeos';
 import { currentNeoDate } from './currentNeoDate';
 import { startDate } from './startDate';
+import { apod } from './apod';
 
 
 export const rootReducer = combineReducers({
@@ -15,5 +16,6 @@ export const rootReducer = combineReducers({
    nextWeekUrl,
    loadingNeos,
    currentNeoDate,
-   startDate
+   startDate,
+   apod
 });

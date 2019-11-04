@@ -6,17 +6,11 @@ import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate } from '../../actions';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod } from '../../actions';
 
 import './App.css';
 
 export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      apod: null,
-    }
-  }
 
   async componentDidMount() {
     const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
@@ -57,6 +51,7 @@ export class App extends Component {
   }
   
   getApod = async() => {
+    const { setApod } = this.props
     const backgroundImg = await fetchAPOD();
 
     const mainStyle = {
@@ -64,7 +59,7 @@ export class App extends Component {
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 100%',
     }
-    this.setState({apod: mainStyle})
+    setApod(mainStyle);
   }
 
   displayDateSelectedNeos = (e) => {
@@ -81,7 +76,7 @@ export class App extends Component {
         <Header />
         <Nav />
         {!loadingNeos && <AsteroidContainer 
-          image={this.state.apod} 
+          // image={this.state.apod} 
           displayDateSelectedNeos={this.displayDateSelectedNeos}
           startDateHelper={this.startDateHelper}/> }
       </div>
@@ -100,7 +95,8 @@ export const mapDispatchToProps = dispatch => ({
   setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl)),
   isLoadingNeos: bool => dispatch(updateLoading(bool)),
   setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date)),
-  setStartDate: date => dispatch(setStartDate(date))
+  setStartDate: date => dispatch(setStartDate(date)),
+  setApod: apod => dispatch(setApod(apod))
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

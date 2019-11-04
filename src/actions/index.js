@@ -32,3 +32,8 @@ export const setStartDate = date => ({
   type: "SET_START_DATE",
   date
 });
+
+export const setApod = apod => ({
+  type: "SET_APOD",
+  apod
+})

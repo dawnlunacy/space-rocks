@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AsteroidCard should match the snapshot 1`] = `
+<section
+  className="asteroid-card"
+>
+  <p
+    className="p-ac"
+  >
+     ID: 
+    3879721
+     
+  </p>
+  <p
+    className="p-ac"
+  >
+     Name: 
+    (2019 UL6)
+     
+  </p>
+  <p
+    className="p-ac"
+  >
+     Close Approach Date: 
+    2019-11-07
+     
+  </p>
+  <p
+    className="p-ac"
+  >
+     Is Potentially Hazardous: 
+     
+  </p>
+  <p
+    className="p-ac"
+  >
+     Estimated Diameter Min: 
+    86.4052294554
+     Feet 
+  </p>
+  <p
+    className="p-ac"
+  >
+     Estimated Diameter Max: 
+     Feet 
+  </p>
+  <p
+    className="p-ac"
+  >
+     Relative Velocity: 
+    17480.8945933894
+     Miles Per Hour
+  </p>
+  <p
+    className="p-ac"
+  >
+     Will Miss Earth by: 
+    10538462.9640548218
+     Miles 
+  </p>
+  <a
+    className="p-ac-link"
+    href="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3879721"
+  >
+     View in NASA database  
+  </a>
+</section>
+`;

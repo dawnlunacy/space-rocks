@@ -63,17 +63,7 @@ export class App extends Component {
       }
       setApod(mainStyle);
     } catch (error) {
-      const backUpAPOD = '../../images/Center_Of_Lagoon_Nebula.jpg';
-
-      const backUpStyle = {
-        backgroundImage:`url(${backUpAPOD})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 100%',
-      }
-
-       console.log("in backUp IMG", backUpStyle)
-      setApod(backUpStyle);
-      // handleError(error.message)
+      handleError(error.message)
     }
   }
 

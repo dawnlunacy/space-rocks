@@ -32,5 +32,13 @@ describe('apiCalls', () => {
 
       expect(fetchAPOD()).rejects.toEqual(Error());
     });
+
+    it('should return an error if Promise rejects', () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 500
+      }));
+
+      expect(fetchAPOD()).rejects.toEqual(Error());
+    });
   });
 });

@@ -1,10 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Space Rocks
 
-## Available Scripts
+Space Rocks is a React-Redux App that uses the [NASA Astronomy Picture of the Day API & the Asteroids Near Earth Object Web Service API](https://api.nasa.gov/) to allow a user to search by week and see the Near Earth Objects (astroids and comets) for that week.
+
+### Focuses
+
+- Consume an API and build a functional and well tested application in 5 days.
+
+- Make informed design decisions to create a user-friendly application.
+
+- Become comfortable with making network requests with an API key.
+
+- Solidify concepts with React to create clean and re-useable components.
+
+- Become comfortable with Redux’s lifecycle, creating actions, reducers, and connecting them to React components.
+
+- Understand and solidify concepts with React component, asynchronous code, and Redux testing.
 
 In the project directory, you can run:
 
-### `npm start`
+### ScreenShots
+  WireFrames made in InVision Studio.
+    - Weekly view of asteroids found from query.
+    ![Weekly View Space Rocks Wire Frame](src/images/Screen_Shot_Week_WireFrame.png)
+
+    - View of an individual information card to an asteroid.
+    ![Individual Card View Space Rocks Wire Frame](src/images/Screen_Shot_Asteroid_Card_WireFrame.png)
+
+    
+    
+
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AsteroidContainer should match the snapshot 1`] = `
+<main>
+  <nav
+    className="asteroid-container-nav"
+  >
+    <p
+      className="select-date-text"
+    >
+       Please select start date to view Near Earth Objects for that week.
+    </p>
+    <DatePicker
+      calendarIcon={
+        <svg
+          className="react-date-picker__calendar-button__icon react-date-picker__button__icon"
+          height={19}
+          stroke="black"
+          strokeWidth={2}
+          viewBox="0 0 19 19"
+          width={19}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="none"
+            height="15"
+            width="15"
+            x="2"
+            y="2"
+          />
+          <line
+            x1="6"
+            x2="6"
+            y1="0"
+            y2="4"
+          />
+          <line
+            x1="13"
+            x2="13"
+            y1="0"
+            y2="4"
+          />
+        </svg>
+      }
+      clearIcon={
+        <svg
+          className="react-date-picker__clear-button__icon react-date-picker__button__icon"
+          height={19}
+          stroke="black"
+          strokeWidth={2}
+          viewBox="0 0 19 19"
+          width={19}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="4"
+            x2="15"
+            y1="4"
+            y2="15"
+          />
+          <line
+            x1="15"
+            x2="4"
+            y1="4"
+            y2="15"
+          />
+        </svg>
+      }
+      isOpen={null}
+      onChange={[MockFunction]}
+      onSelect={[MockFunction]}
+      returnValue="start"
+      selected="2019-11-03"
+    />
+    <p
+      className="selected-date-preview"
+    >
+       Date selected: 
+      2019-11-03
+    </p>
+  </nav>
+  <section
+    className="asteroid-main-section"
+    style={
+      Object {
+        "backgroundImage": "url(https://apod.nasa.gov/apod/image/1911/M8_Wu_966.jpg)",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "100% 100%",
+      }
+    }
+  >
+    <article
+      className="neo-weekday"
+    >
+      <Connect(AsteroidDateCard)
+        date="2019-11-07"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-07"
+        totalNeosOnDate={9}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-06"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-06"
+        totalNeosOnDate={16}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-09"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-09"
+        totalNeosOnDate={2}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-08"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-08"
+        totalNeosOnDate={8}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-03"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-03"
+        totalNeosOnDate={7}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-05"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-05"
+        totalNeosOnDate={7}
+      />
+      <Connect(AsteroidDateCard)
+        date="2019-11-04"
+        displayDateSelectedNeos={[MockFunction]}
+        key="2019-11-04"
+        totalNeosOnDate={7}
+      />
+    </article>
+    <div
+      className="asteroid-detailed-info"
+    >
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="193.21"
+        estimatedDiameterMin="86.41"
+        id="3879721"
+        isPotentiallyHazardous="false"
+        key="3879721"
+        missEarthDistance="10538462.96"
+        name="(2019 UL6)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3879721"
+        relativeVelocity="17480.89"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="1546.77"
+        estimatedDiameterMin="691.74"
+        id="3879139"
+        isPotentiallyHazardous="false"
+        key="3879139"
+        missEarthDistance="37761662.77"
+        name="(2019 TM6)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3879139"
+        relativeVelocity="53573.59"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="166.43"
+        estimatedDiameterMin="74.43"
+        id="3879532"
+        isPotentiallyHazardous="false"
+        key="3879532"
+        missEarthDistance="3976280.61"
+        name="(2019 UL4)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3879532"
+        relativeVelocity="20227.06"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="1698.34"
+        estimatedDiameterMin="759.52"
+        id="3127406"
+        isPotentiallyHazardous="true"
+        key="3127406"
+        missEarthDistance="37796010.02"
+        name="(2002 LT38)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3127406"
+        relativeVelocity="32796.79"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="707.99"
+        estimatedDiameterMin="316.62"
+        id="3596685"
+        isPotentiallyHazardous="false"
+        key="3596685"
+        missEarthDistance="29643901.45"
+        name="(2012 BO77)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3596685"
+        relativeVelocity="27294.30"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="97.73"
+        estimatedDiameterMin="43.71"
+        id="3610028"
+        isPotentiallyHazardous="false"
+        key="3610028"
+        missEarthDistance="32585498.26"
+        name="(2012 TE53)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3610028"
+        relativeVelocity="46451.99"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="1548.91"
+        estimatedDiameterMin="692.69"
+        id="2467336"
+        isPotentiallyHazardous="true"
+        key="2467336"
+        missEarthDistance="37795980.94"
+        name="467336 (2002 LT38)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2467336"
+        relativeVelocity="32796.75"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="55.93"
+        estimatedDiameterMin="25.01"
+        id="3883091"
+        isPotentiallyHazardous="false"
+        key="3883091"
+        missEarthDistance="915455.91"
+        name="(2019 UO7)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3883091"
+        relativeVelocity="9168.67"
+      />
+      <Connect(AsteroidCard)
+        closeApproachDate="2019-11-07"
+        estimatedDiameterMax="232.50"
+        estimatedDiameterMin="103.98"
+        id="3884022"
+        isPotentiallyHazardous="false"
+        key="3884022"
+        missEarthDistance="8352868.98"
+        name="(2019 UJ9)"
+        nasaUrl="http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3884022"
+        relativeVelocity="14657.60"
+      />
+    </div>
+  </section>
+</main>
+`;

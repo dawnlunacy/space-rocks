@@ -1,8 +1,6 @@
 import React from 'react';
 import logo from '../../images/moon-icon-2.png';
-import { findTodaysDate } from '../../utils/helpers';
-import { formatTodaysDate } from '../../utils/helpers';
-import { findDay } from '../../utils/helpers';
+import { findTodaysDate, formatTodaysDate, findDay  } from '../../utils/helpers';
 import './Header.css';
 
 export const Header = () => {

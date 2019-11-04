@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AsteroidDateContainer should match snapshot 1`] = `
+<section
+  className="neo-daily-display"
+>
+  <h4
+    className="neo-date"
+  >
+     
+    2019-11-04
+     
+  </h4>
+  <h4
+    className="neo-total-for-date"
+  >
+     Total NEOs: 
+    <Component />
+     
+  </h4>
+  <button
+    className="see-all-neos-btn"
+    id="2019-11-04"
+    onClick={[Function]}
+  >
+     See All 
+  </button>
+</section>
+`;

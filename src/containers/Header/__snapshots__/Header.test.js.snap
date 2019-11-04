@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot 1`] = `
+<header
+  className="main-header"
+>
+  <img
+    alt="A grey asteroid logo"
+    className="logo"
+    src="moon-icon-2.png"
+  />
+  <h1>
+     Space Insights 
+  </h1>
+  <div
+    className="date"
+  >
+    <h2>
+       
+    </h2>
+    <h2>
+       
+    </h2>
+  </div>
+</header>
+`;

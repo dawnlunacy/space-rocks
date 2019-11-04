@@ -4,7 +4,6 @@ import '../AsteroidContainer/AsteroidContainer.css';
 import AsteroidCard from '../AsteroidCard/AsteroidCard';
 import AsteroidDateCard from '../AstroidDateCard/AsteroidDateCard';
 import DatePicker from 'react-date-picker';
-import { setStartDate } from '../../actions';
 
 export const AsteroidContainer = ({ apod, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
   console.log("startDate:", startDate)
@@ -62,10 +61,6 @@ export const mapStateToProps = state => ({
   startDate: state.startDate,
   apod: state.apod
 });
-
-export const dispatchStateToProps = dispatch => ({
-  setStartDate: date => dispatch(setStartDate(date)),
-})
 
 
 export default connect(mapStateToProps, null)(AsteroidContainer);

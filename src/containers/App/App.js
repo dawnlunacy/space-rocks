@@ -18,7 +18,8 @@ export class App extends Component {
       this.saveNeosHelper();
     } catch (error) {
       isLoading(false);
-      handleError("There was an error loading the NEAR EARTH OBJECTS from NASA. Try again or look outside for incoming asteroids or comets.")
+      handleError(error);
+      // handleError("There was an error loading the NEAR EARTH OBJECTS from NASA. Try again or look outside for incoming asteroids or comets.")
     }
     
   }

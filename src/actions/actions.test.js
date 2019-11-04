@@ -84,19 +84,19 @@ describe('actions', () => {
     });
   });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('setStartDate', () => {
+    it('should have a type of SET_START_DATE' , () => {
+      const date = '2019-11-08'
+      const result = actions.setStartDate(date)
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: 'SET_START_DATE', 
+        date
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
   // describe('setTotalNeos', () => {
   //   it('should have a type of ' , () => {

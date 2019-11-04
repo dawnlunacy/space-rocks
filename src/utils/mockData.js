@@ -3,6 +3,9 @@ export const mockApod = {
   "backgroundRepeat": "no-repeat",
   "backgroundSize": "100% 100%"
 }
+export const mockNextWeekUrl = "http://www.neowsapp.com/rest/v1/feed?start_date=2019-11-07&end_date=2019-11-14&detailed=false&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA";
+
+export const mockPrevWeekUrl = "http://www.neowsapp.com/rest/v1/feed?start_date=2019-10-24&end_date=2019-10-31&detailed=false&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA";
 
 export const mockCleanNeos = {
   "2019-11-07": [

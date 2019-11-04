@@ -40,5 +40,7 @@ describe('apiCalls', () => {
 
       expect(fetchAPOD()).rejects.toEqual(Error());
     });
+
+    it('should')
   });
 });

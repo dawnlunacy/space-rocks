@@ -28,19 +28,19 @@ describe('actions', () => {
     });
   });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('setPrevWeek', () => {
+    it('should have a type of SET_PREV_WEEK' , () => {
+      const prevWeekFetchUrl = "http://www.neowsapp.com/rest/v1/feed?start_date=2019-10-24&end_date=2019-10-31&detailed=false&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA";
+      const result = actions.setPrevWeek(prevWeekFetchUrl)
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: 'SET_PREV_WEEK',
+        prevWeekFetchUrl
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
   // describe('setTotalNeos', () => {
   //   it('should have a type of ' , () => {

@@ -52,7 +52,7 @@ export class App extends Component {
   }
   
   getApod = async() => {
-    const { setApod, handleError } = this.props
+    const { setApod, handleError, } = this.props
     try {
       const backgroundImg = await fetchAPOD();
 

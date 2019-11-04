@@ -1,14 +1,16 @@
 import * as actions from '../actions';
-import mockCleanNeos from '../utils/mockData';
+import { mockCleanNeos, mockApod } from '../utils/mockData';
 
 describe('actions', () => {
 
   describe('setNeos', () => {
     it('should have a type of SET_NEOS', () => {
-      const result = actions.setNeos(mockCleanNeos);
+      const neos = mockCleanNeos;
+      const result = actions.setNeos(neos);
+      
       const expectedAction = {
         type: 'SET_NEOS',
-        mockCleanNeos
+        neos
       }
       expect(result).toEqual(expectedAction)
     })
@@ -98,19 +100,19 @@ describe('actions', () => {
     });
   });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('setApod', () => {
+    it('should have a type of SET_APOD' , () => {
+      const apod = mockApod;
+      const result = actions.setApod(apod)
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: "SET_APOD",
+        apod
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
 
 

@@ -42,33 +42,33 @@ describe('actions', () => {
     });
   });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('setNextWeek', () => {
+    it('should have a type of SET_NEXT_WEEK' , () => {
+      const nextWeekFetchUrl = "http://www.neowsapp.com/rest/v1/feed?start_date=2019-11-07&end_date=2019-11-14&detailed=false&api_key=m98g3WmabopZXIZRCQ0HdHYrEwuHimuH8b8JjicA";
+      const result = actions.setNextWeek(nextWeekFetchUrl);
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: 'SET_NEXT_WEEK',
+        nextWeekFetchUrl
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('updateLoading', () => {
+    it('should have a type of UPDATE_LOADING' , () => {
+      const bool = false;
+      const result = actions.updateLoading(bool)
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: 'UPDATE_LOADING',
+        bool
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
   // describe('setTotalNeos', () => {
   //   it('should have a type of ' , () => {

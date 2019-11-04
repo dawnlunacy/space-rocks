@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header className="main-header">
       <img src={logo} alt="A grey asteroid logo" className="logo"/>
-      <h1> Space Insights </h1>
+      <h1> Space Rocks! </h1>
       <div className="date">
       <h2> { findDay() }</h2>
       <h2> { formatTodaysDate(findTodaysDate()) }</h2>

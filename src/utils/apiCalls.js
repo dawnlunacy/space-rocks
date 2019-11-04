@@ -5,7 +5,7 @@ export const fetchAPOD = async() => {
     const data = await response.json()
     return data.url;
   } else {
-    throw Error(response.statusText)
+    throw Error("There was an error loading the Astronomy Picture Of the Day from NASA. Try again or look outside for incoming asteroids or comets.")
   }
 }
 
@@ -19,7 +19,8 @@ export const fetchNEO = async(startDate, endDate) => {
     console.log("asteroids", asteroidData)
     return asteroidData;
   } else {
-    throw Error(response.statusText);
+    console.log("Response in fetch for error", response)
+    throw Error("There was an error loading the NEAR EARTH OBJECTS from NASA. Try again or look outside for incoming asteroids or comets.");
   }
 }
 

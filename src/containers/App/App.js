@@ -6,14 +6,21 @@ import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod } from '../../actions';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod, handleError } from '../../actions';
 import './App.css';
 
 export class App extends Component {
 
   async componentDidMount() {
-    this.getApod();
-    this.saveNeosHelper();
+    const { handleError, isLoading } = this.props
+    try {
+      this.getApod();
+      this.saveNeosHelper();
+    } catch (error) {
+      isLoading(false);
+      handleError(error.message);
+    }
+    
   }
 
   startDateHelper = async (date) => {
@@ -24,32 +31,40 @@ export class App extends Component {
   }
 
   saveNeosHelper = async (startDate) => {
-    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
-    isLoadingNeos(true)
-    if (startDate === undefined) {
-      startDate = formatDateForFetch()
-    } 
-    var endDate = findEndOfWeek(startDate);
-    const neos = await fetchNEO(startDate, endDate);
-    const cleanNeos = cleanNeoData(neos);
-    setPrevWeek(neos.links.prev)
-    setTotalNeos(neos.element_count)
-    setNextWeek(neos.links.next)
-    setNeos(cleanNeos)
-    isLoadingNeos(false)
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos, handleError} = this.props;
+    try {
+      isLoadingNeos(true)
+      if (startDate === undefined) {
+        startDate = formatDateForFetch()
+      } 
+      var endDate = findEndOfWeek(startDate);
+      const neos = await fetchNEO(startDate, endDate);
+      const cleanNeos = cleanNeoData(neos);
+      setPrevWeek(neos.links.prev)
+      setTotalNeos(neos.element_count)
+      setNextWeek(neos.links.next)
+      setNeos(cleanNeos)
+      isLoadingNeos(false)
+    } catch(error) {
+      handleError(error.message)
+    }
     
   }
   
   getApod = async() => {
-    const { setApod } = this.props
-    const backgroundImg = await fetchAPOD();
+    const { setApod, handleError, } = this.props
+    try {
+      const backgroundImg = await fetchAPOD();
 
-    const mainStyle = {
-      backgroundImage:`url(${backgroundImg})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
+      const mainStyle = {
+        backgroundImage:`url(${backgroundImg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }
+      setApod(mainStyle);
+    } catch (error) {
+      handleError(error.message)
     }
-    setApod(mainStyle);
   }
 
   displayDateSelectedNeos = (e) => {
@@ -59,22 +74,24 @@ export class App extends Component {
   }
   
   render() {
-    const { loadingNeos } = this.props;
+    const { loadingNeos, errorMessage } = this.props;
    
     return (
       <div className = "App">
         <Header />
         <Nav />
-        {!loadingNeos && <AsteroidContainer 
+        {!loadingNeos && errorMessage === '' &&  <AsteroidContainer 
           displayDateSelectedNeos={this.displayDateSelectedNeos}
           startDateHelper={this.startDateHelper}/> }
+        { errorMessage !== '' && <h5> {errorMessage } </h5> }
       </div>
     )
   }
 }
 
 export const mapStateToProps = (state) => ({
-  loadingNeos: state.loadingNeos
+  loadingNeos: state.loadingNeos,
+  errorMessage: state.errorMessage
 })
 
 export const mapDispatchToProps = dispatch => ({
@@ -85,7 +102,8 @@ export const mapDispatchToProps = dispatch => ({
   isLoadingNeos: bool => dispatch(updateLoading(bool)),
   setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date)),
   setStartDate: date => dispatch(setStartDate(date)),
-  setApod: apod => dispatch(setApod(apod))
+  setApod: apod => dispatch(setApod(apod)),
+  handleError: errorMessage => dispatch(handleError(errorMessage))
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

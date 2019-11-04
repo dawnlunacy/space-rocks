@@ -33,32 +33,25 @@ export class App extends Component {
   }
 
   startDateHelper = async (date) => {
-    console.log("in startDate helper", date)
     const { setStartDate } = this.props;
     const startOfWeek = formatDateForFetch(date)
-    console.log("DATEY", typeof formattedDate)
     setStartDate(startOfWeek)
     this.saveNeosHelper(startOfWeek)
   }
 
   saveNeosHelper = async (startDate) => {
-    console.log("start date line 55:", startDate)
     const { isLoadingNeos, setNeos } = this.props;
     isLoadingNeos(true)
     if (startDate === undefined) {
       startDate = formatDateForFetch()
     } 
-      var endDate = findEndOfWeek(startDate);
-      const endOfWeek = findEndOfWeek(startDate)
-    console.log("End", endOfWeek)
-    const neos = await fetchNEO(startDate, endDate)
-    const cleanNeos = cleanNeoData(neos)
+    var endDate = findEndOfWeek(startDate);
+    const neos = await fetchNEO(startDate, endDate);
+    const cleanNeos = cleanNeoData(neos);
     setPrevWeek(neos.links.prev)
     setTotalNeos(neos.element_count)
     setNextWeek(neos.links.next)
-    console.log("CLEAN NEOS", cleanNeos)
     setNeos(cleanNeos)
-    console.log("NEOS", neos)
     isLoadingNeos(false)
     
   }

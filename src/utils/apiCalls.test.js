@@ -24,5 +24,13 @@ describe('apiCalls', () => {
       fetchAPOD()
       .then(results => expect(results).toEqual(mockUnfilterdApodResponse));
     });
+
+    it('should return an error if the server is down', () => {
+      window.fetch = jest.fn().mockImplementation(() => ({
+        status: 500
+      }));
+
+      expect(fetchAPOD()).rejects.toEqual(Error());
+    });
   });
 });

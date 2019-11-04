@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './AsteroidDateCard.css';
 
 export const AsteroidDateCard = ({date, totalNeosOnDate, displayDateSelectedNeos}) => {
@@ -13,9 +12,4 @@ export const AsteroidDateCard = ({date, totalNeosOnDate, displayDateSelectedNeos
   )
 };
 
-export const mapStateToProps = state => ({
-  neos: state.neos,
-  currentNeoDate: state.currentNeoDate,
-});
-
-export default connect(mapStateToProps, null)(AsteroidDateCard)
+export default AsteroidDateCard;

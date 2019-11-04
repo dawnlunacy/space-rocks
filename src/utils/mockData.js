@@ -1,4 +1,10 @@
-export const mockCleanNeo = {
+export const mockApod = {
+  "backgroundImage": "url(https://apod.nasa.gov/apod/image/1911/M8_Wu_966.jpg)",
+  "backgroundRepeat": "no-repeat",
+  "backgroundSize": "100% 100%"
+}
+
+export const mockCleanNeos = {
   "2019-11-07": [
     {
       "id": "3879721",

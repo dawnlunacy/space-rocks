@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AsteroidCard, mapStateToProps} from '../AsteroidCard/AsteroidCard';
-import { mockCleanNeo } from '../../utils/mockData';
+import { mockCleanNeos } from '../../utils/mockData';
 
 describe('AsteroidCard', () => {
   let wrapper;
@@ -9,7 +9,7 @@ describe('AsteroidCard', () => {
 
   beforeEach(() => {
     wrapper = shallow(<AsteroidCard
-      neos={ mockCleanNeo }
+      neos={ mockCleanNeos }
       currentNeoDate='2019-11-03'
       id={"3879721"}
       name={"(2019 UL6)"}

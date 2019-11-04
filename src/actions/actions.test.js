@@ -7,7 +7,7 @@ describe('actions', () => {
     it('should have a type of SET_NEOS', () => {
       const neos = mockCleanNeos;
       const result = actions.setNeos(neos);
-      
+
       const expectedAction = {
         type: 'SET_NEOS',
         neos
@@ -113,42 +113,4 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction)
     });
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

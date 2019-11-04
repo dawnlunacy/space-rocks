@@ -7,6 +7,7 @@ import { loadingNeos } from './loadingNeos';
 import { currentNeoDate } from './currentNeoDate';
 import { startDate } from './startDate';
 import { apod } from './apod';
+import { errorMessage } from './errorMessage';
 
 
 export const rootReducer = combineReducers({
@@ -17,5 +18,6 @@ export const rootReducer = combineReducers({
    loadingNeos,
    currentNeoDate,
    startDate,
-   apod
+   apod,
+   errorMessage
 });

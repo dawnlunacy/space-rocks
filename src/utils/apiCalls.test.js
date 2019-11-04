@@ -17,6 +17,8 @@ describe('apiCalls', () => {
       fetchAPOD();
       
       expect(window.fetch).toHaveBeenCalledWith(mockUrl)
-    })
+    });
+
+    it('should ')
   });
 });

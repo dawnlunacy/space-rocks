@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import '../AsteroidContainer/AsteroidContainer.css';
 import AsteroidCard from '../AsteroidCard/AsteroidCard';
 import AsteroidDateCard from '../AstroidDateCard/AsteroidDateCard';
+import DatePicker from 'react-date-picker';
+import { setStartDate } from '../../actions';
 
-export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,currentNeoDate}) => {
+export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
+  console.log("startDate:", startDate)
 
   if (currentNeoDate !== '') {
     var asteroidCardsToDisply = neos[currentNeoDate].map(currentNeo => {
@@ -36,8 +39,9 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
   return (
     <main>
       <nav className="asteroid-container-nav">
-      <p> DropDown </p>
-      <p> InputDate </p>
+      <p className="select-date-text"> Please select start date to view Near Earth Objects for that week.</p>
+      <DatePicker selected={startDate} onSelect={startDateHelper} onChange={startDateHelper} />
+      <p className="selected-date-preview"> Date selected: {startDate}</p>
       </nav>
       <section className="asteroid-main-section" style={ image }>
         <article className="neo-weekday"> 
@@ -53,8 +57,13 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
 
 export const mapStateToProps = state => ({
   neos: state.neos,
-  currentNeoDate: state.currentNeoDate
+  currentNeoDate: state.currentNeoDate,
+  startDate: state.startDate
 });
+
+export const dispatchStateToProps = dispatch => ({
+  setStartDate: date => dispatch(setStartDate(date)),
+})
 
 
 export default connect(mapStateToProps, null)(AsteroidContainer);

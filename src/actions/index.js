@@ -27,3 +27,8 @@ export const setCurrentNeoDate = date => ({
   type: "SET_CURRENT_NEO_DATE",
   date
 });
+
+export const setStartDate = date => ({
+  type: "SET_START_DATE",
+  date
+});

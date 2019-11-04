@@ -76,7 +76,6 @@ export class App extends Component {
         <Header />
         <Nav />
         {!loadingNeos && <AsteroidContainer 
-          // image={this.state.apod} 
           displayDateSelectedNeos={this.displayDateSelectedNeos}
           startDateHelper={this.startDateHelper}/> }
       </div>

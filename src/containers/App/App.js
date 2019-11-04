@@ -7,23 +7,13 @@ import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
 import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod } from '../../actions';
-
 import './App.css';
 
 export class App extends Component {
 
   async componentDidMount() {
-    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
     this.getApod();
-    const defaultStartDate = formatDateForFetch();
-    const defaultEndDate = findEndOfWeek(defaultStartDate)
-    const neos = await fetchNEO(defaultStartDate, defaultEndDate);
-    const cleanNeos = cleanNeoData(neos);
-    setPrevWeek(neos.links.prev)
-    setTotalNeos(neos.element_count)
-    setNextWeek(neos.links.next)
-    setNeos(cleanNeos)
-    isLoadingNeos(false)
+    this.saveNeosHelper();
   }
 
   startDateHelper = async (date) => {
@@ -34,7 +24,7 @@ export class App extends Component {
   }
 
   saveNeosHelper = async (startDate) => {
-    const { isLoadingNeos, setNeos } = this.props;
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
     isLoadingNeos(true)
     if (startDate === undefined) {
       startDate = formatDateForFetch()

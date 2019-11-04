@@ -10,7 +10,7 @@ exports[`Header should match snapshot 1`] = `
     src="moon-icon-2.png"
   />
   <h1>
-     Space Insights 
+     Space Rocks! 
   </h1>
   <div
     className="date"

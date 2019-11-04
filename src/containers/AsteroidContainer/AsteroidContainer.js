@@ -6,8 +6,6 @@ import AsteroidDateCard from '../AstroidDateCard/AsteroidDateCard';
 import DatePicker from 'react-date-picker';
 
 export const AsteroidContainer = ({ apod, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
-  console.log("startDate:", startDate)
-  console.log("apod in asteroid", apod)
 
   if (currentNeoDate !== '') {
     var asteroidCardsToDisply = neos[currentNeoDate].map(currentNeo => {

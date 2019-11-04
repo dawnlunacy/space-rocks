@@ -25,3 +25,8 @@ p {
   background-size: cover;
   text-align: center;
 }
+
+.react-date-picker{
+  background-color: white;
+  margin: 5px;
+}

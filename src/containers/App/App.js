@@ -6,7 +6,7 @@ import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate } from '../../actions';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate } from '../../actions';
 
 import './App.css';
 
@@ -14,7 +14,7 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-      apod: null
+      apod: null,
     }
   }
 
@@ -31,6 +31,14 @@ export class App extends Component {
     setNeos(cleanNeos)
     isloadingNeos(false)
   }
+
+  startDateHelper = (date) => {
+    console.log("in helper", date)
+    const { setStartDate } = this.props;
+     const formattedDate = formatDateForFetch(date)
+     console.log("DATEY", typeof formattedDate)
+    setStartDate(formattedDate)
+  } 
   
   getApod = async() => {
     const backgroundImg = await fetchAPOD();
@@ -56,7 +64,10 @@ export class App extends Component {
       <div className = "App">
         <Header />
         <Nav />
-        {!loadingNeos && <AsteroidContainer image={this.state.apod} displayDateSelectedNeos={this.displayDateSelectedNeos}/> }
+        {!loadingNeos && <AsteroidContainer 
+          image={this.state.apod} 
+          displayDateSelectedNeos={this.displayDateSelectedNeos}
+          startDateHelper={this.startDateHelper}/> }
       </div>
     )
   }
@@ -72,7 +83,8 @@ export const mapDispatchToProps = dispatch => ({
   setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl)),
   setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl)),
   isloadingNeos: bool => dispatch(updateLoading(bool)),
-  setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date))
+  setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date)),
+  setStartDate: date => dispatch(setStartDate(date))
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

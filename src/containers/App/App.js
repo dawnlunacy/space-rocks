@@ -49,7 +49,6 @@ export class App extends Component {
       backgroundRepeat: 'no-repeat',
       backgroundSize: '100% 100%',
     }
-    console.log("apod", mainStyle)
     setApod(mainStyle);
   }
 

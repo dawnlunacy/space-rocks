@@ -6,9 +6,5 @@ exports[`App should match the snapshots 1`] = `
 >
   <Header />
   <Nav />
-  <Connect(AsteroidContainer)
-    displayDateSelectedNeos={[Function]}
-    startDateHelper={[Function]}
-  />
 </div>
 `;

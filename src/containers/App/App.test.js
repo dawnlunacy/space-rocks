@@ -7,9 +7,27 @@ jest.mock('../../utils/apiCalls');
 
 describe('App', () => {
   let wrapper;
+  const mockSetNeos = jest.fn();
+  const mockSetTotalNeos = jest.fn();
+  const mockSetPrevWeek = jest.fn();
+  const mockSetNextWeek = jest.fn();
+  const mockIsLoadingNeos = jest.fn();
+  const mockSetCurrentNeoData = jest.fn();
+  const mockSetStartDate = jest.fn();
+  const mockSetApod = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<App 
+      loadingNeos={true}
+      setNeos={mockSetNeos}
+      setTotalNeps={mockSetTotalNeos}
+      setPrevWeek={mockSetPrevWeek}
+      setNextWeek={mockSetNextWeek}
+      isLoadingNeos={mockIsLoadingNeos}
+      setCurrentNeoDate={mockSetCurrentNeoData}
+      setStartDate={mockSetStartDate}
+      setApod={mockSetApod}
+      />);
   });
 
   it('should match the snapshots', () => {

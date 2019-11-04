@@ -19,7 +19,7 @@ export class App extends Component {
   }
 
   async componentDidMount() {
-    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isloadingNeos} = this.props;
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
     this.getApod();
     const defaultStartDate = formatDateForFetch();
     const defaultEndDate = findEndOfWeek(defaultStartDate)
@@ -29,16 +29,39 @@ export class App extends Component {
     setTotalNeos(neos.element_count)
     setNextWeek(neos.links.next)
     setNeos(cleanNeos)
-    isloadingNeos(false)
+    isLoadingNeos(false)
   }
 
-  startDateHelper = (date) => {
-    console.log("in helper", date)
+  startDateHelper = async (date) => {
+    console.log("in startDate helper", date)
     const { setStartDate } = this.props;
-     const formattedDate = formatDateForFetch(date)
-     console.log("DATEY", typeof formattedDate)
-    setStartDate(formattedDate)
-  } 
+    const startOfWeek = formatDateForFetch(date)
+    console.log("DATEY", typeof formattedDate)
+    setStartDate(startOfWeek)
+    this.saveNeosHelper(startOfWeek)
+  }
+
+  saveNeosHelper = async (startDate) => {
+    console.log("start date line 55:", startDate)
+    const { isLoadingNeos, setNeos } = this.props;
+    isLoadingNeos(true)
+    if (startDate === undefined) {
+      startDate = formatDateForFetch()
+    } 
+      var endDate = findEndOfWeek(startDate);
+      const endOfWeek = findEndOfWeek(startDate)
+    console.log("End", endOfWeek)
+    const neos = await fetchNEO(startDate, endDate)
+    const cleanNeos = cleanNeoData(neos)
+    setPrevWeek(neos.links.prev)
+    setTotalNeos(neos.element_count)
+    setNextWeek(neos.links.next)
+    console.log("CLEAN NEOS", cleanNeos)
+    setNeos(cleanNeos)
+    console.log("NEOS", neos)
+    isLoadingNeos(false)
+    
+  }
   
   getApod = async() => {
     const backgroundImg = await fetchAPOD();
@@ -82,7 +105,7 @@ export const mapDispatchToProps = dispatch => ({
   setTotalNeos: totalNeos => dispatch (setTotalNeos(totalNeos)),
   setPrevWeek: prevWeekFetchUrl => dispatch(setPrevWeek(prevWeekFetchUrl)),
   setNextWeek: nextWeekFetchUrl => dispatch(setNextWeek(nextWeekFetchUrl)),
-  isloadingNeos: bool => dispatch(updateLoading(bool)),
+  isLoadingNeos: bool => dispatch(updateLoading(bool)),
   setCurrentNeoDate: date => dispatch(setCurrentNeoDate(date)),
   setStartDate: date => dispatch(setStartDate(date))
   })

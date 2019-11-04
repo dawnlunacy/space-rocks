@@ -36,4 +36,9 @@ export const setStartDate = date => ({
 export const setApod = apod => ({
   type: "SET_APOD",
   apod
-})
+});
+
+export const handleError = errorMessage => ({
+  type: 'HANDLE_ERROR',
+  errorMessage
+});

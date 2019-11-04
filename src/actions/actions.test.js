@@ -70,19 +70,19 @@ describe('actions', () => {
     });
   });
 
-  // describe('setTotalNeos', () => {
-  //   it('should have a type of ' , () => {
+  describe('setCurrentNeoDate', () => {
+    it('should have a type of SET_CURRENT_NEO_DATE' , () => {
+      const date = '2019-11-07'
+      const result = actions.setCurrentNeoDate(date)
 
-  //     const result = actions.
-
-  //     const expectedAction = {
-  //       type: ,
-
-  //     }
+      const expectedAction = {
+        type: 'SET_CURRENT_NEO_DATE',
+        date
+      }
     
-  //   expect(result).toEqual(expectedAction)
-  //   });
-  // });
+    expect(result).toEqual(expectedAction)
+    });
+  });
 
   // describe('setTotalNeos', () => {
   //   it('should have a type of ' , () => {

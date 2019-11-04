@@ -18,8 +18,7 @@ export class App extends Component {
       this.saveNeosHelper();
     } catch (error) {
       isLoading(false);
-      handleError(error);
-      // handleError("There was an error loading the NEAR EARTH OBJECTS from NASA. Try again or look outside for incoming asteroids or comets.")
+      handleError(error.message);
     }
     
   }
@@ -32,32 +31,50 @@ export class App extends Component {
   }
 
   saveNeosHelper = async (startDate) => {
-    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos} = this.props;
-    isLoadingNeos(true)
-    if (startDate === undefined) {
-      startDate = formatDateForFetch()
-    } 
-    var endDate = findEndOfWeek(startDate);
-    const neos = await fetchNEO(startDate, endDate);
-    const cleanNeos = cleanNeoData(neos);
-    setPrevWeek(neos.links.prev)
-    setTotalNeos(neos.element_count)
-    setNextWeek(neos.links.next)
-    setNeos(cleanNeos)
-    isLoadingNeos(false)
+    const { setNeos, setTotalNeos, setPrevWeek, setNextWeek, isLoadingNeos, handleError} = this.props;
+    try {
+      isLoadingNeos(true)
+      if (startDate === undefined) {
+        startDate = formatDateForFetch()
+      } 
+      var endDate = findEndOfWeek(startDate);
+      const neos = await fetchNEO(startDate, endDate);
+      const cleanNeos = cleanNeoData(neos);
+      setPrevWeek(neos.links.prev)
+      setTotalNeos(neos.element_count)
+      setNextWeek(neos.links.next)
+      setNeos(cleanNeos)
+      isLoadingNeos(false)
+    } catch(error) {
+      handleError(error.message)
+    }
     
   }
   
   getApod = async() => {
-    const { setApod } = this.props
-    const backgroundImg = await fetchAPOD();
+    const { setApod, handleError } = this.props
+    try {
+      const backgroundImg = await fetchAPOD();
 
-    const mainStyle = {
-      backgroundImage:`url(${backgroundImg})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100% 100%',
+      const mainStyle = {
+        backgroundImage:`url(${backgroundImg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }
+      setApod(mainStyle);
+    } catch (error) {
+      const backUpAPOD = '../../images/Center_Of_Lagoon_Nebula.jpg';
+
+      const backUpStyle = {
+        backgroundImage:`url(${backUpAPOD})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }
+
+       console.log("in backUp IMG", backUpStyle)
+      setApod(backUpStyle);
+      // handleError(error.message)
     }
-    setApod(mainStyle);
   }
 
   displayDateSelectedNeos = (e) => {
@@ -76,7 +93,7 @@ export class App extends Component {
         {!loadingNeos && errorMessage === '' &&  <AsteroidContainer 
           displayDateSelectedNeos={this.displayDateSelectedNeos}
           startDateHelper={this.startDateHelper}/> }
-        { errorMessage !== '' && <p> {errorMessage }</p> }
+        { errorMessage !== '' && <h5> {errorMessage } </h5> }
       </div>
     )
   }

@@ -12,7 +12,7 @@ describe('neos', () => {
 
   it('should return state with the updated neos', () => {
     const mockNeos = mockCleanNeos;
-    const initialState = null;
+    const initialState = {};
     const state = initialState;
     const action = {
       type: 'SET_NEOS',

@@ -11,7 +11,7 @@ describe('loadingNeos', () => {
 
   it('should return state with the updated loading status', () => {
     const mockBool = false;
-    const initialState = null;
+    const initialState = true;
     const state = initialState;
     const action = {
       type: 'UPDATE_LOADING',

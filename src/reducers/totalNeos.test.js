@@ -11,7 +11,7 @@ describe('totalNeos', () => {
 
   it('should return state with the current total of NEOs found from query', () => {
     const mockTotal = "2019-11-07"
-    const initialState = null;
+    const initialState = 0;
     const state = initialState;
     const action = {
       type: 'SET_TOTAL_NEOS',

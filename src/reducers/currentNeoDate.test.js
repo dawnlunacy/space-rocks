@@ -11,7 +11,7 @@ describe('currentNeoDate', () => {
 
   it('should return state with the current NEO date being viewed', () => {
     const mockDate = "2019-11-07"
-    const initialState = null;
+    const initialState = '';
     const state = initialState;
     const action = {
       type: 'SET_CURRENT_NEO_DATE',

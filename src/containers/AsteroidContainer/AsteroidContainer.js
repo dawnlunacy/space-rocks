@@ -6,7 +6,7 @@ import AsteroidDateCard from '../AstroidDateCard/AsteroidDateCard';
 import DatePicker from 'react-date-picker';
 import { setStartDate } from '../../actions';
 
-export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
+export const AsteroidContainer = ({ apod, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
   console.log("startDate:", startDate)
 
   if (currentNeoDate !== '') {
@@ -43,7 +43,7 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
       <DatePicker selected={startDate} onSelect={startDateHelper} onChange={startDateHelper} />
       <p className="selected-date-preview"> Date selected: {startDate}</p>
       </nav>
-      <section className="asteroid-main-section" style={ image }>
+      <section className="asteroid-main-section" style={ apod }>
         <article className="neo-weekday"> 
         {neoInfoToDisplay} 
         </article>
@@ -58,7 +58,8 @@ export const AsteroidContainer = ({ image, neos, displayDateSelectedNeos,current
 export const mapStateToProps = state => ({
   neos: state.neos,
   currentNeoDate: state.currentNeoDate,
-  startDate: state.startDate
+  startDate: state.startDate,
+  apod: state.apod
 });
 
 export const dispatchStateToProps = dispatch => ({

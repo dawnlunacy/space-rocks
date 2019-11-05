@@ -1,5 +1,7 @@
 import helpers, { formatDateForFetch } from './helpers';
-import { findTodaysDate, formatTodaysDate, findDay, findEndOfWeek } from './helpers'
+import { findTodaysDate, formatTodaysDate, findDay, findEndOfWeek, cleanNeoData } from './helpers';
+import { mockNeoDataUnfiltered } from '../utils/mockNeoDataUnfiltered';
+import { mockCleanNeos } from '../utils/mockData';
 
 describe('helpers', () => {
   describe('findTodaysDate', () => {
@@ -48,6 +50,16 @@ describe('helpers', () => {
       const expectedResponse = '2019-11-04';
 
       const mockAction = formatDateForFetch(mockDay);
+      expect(mockAction).toEqual(expectedResponse);
+    });
+  });
+
+  describe('cleanNeoDate', () => {
+    it.skip('should clean up the original data to the desired data', () => {
+      const mockData = mockNeoDataUnfiltered;
+      const expectedResponse = mockCleanNeos
+
+      const mockAction = cleanNeoData(mockData);
       expect(mockAction).toEqual(expectedResponse);
     });
   });

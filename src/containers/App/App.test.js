@@ -141,6 +141,18 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     });
 
+    it('should call dispatch with a setCurrentNeoDate action when displayDateSelectedNeos is called', () => {
+      const mockDispatch = jest.fn();
+      const mockResponse = false
+
+      const actionToDispatch = setCurrentNeoDate(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setCurrentNeoDate(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
 
 
 

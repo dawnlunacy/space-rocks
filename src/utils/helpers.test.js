@@ -1,5 +1,5 @@
 import helpers from './helpers';
-import { findTodaysDate, formatTodaysDate, findDay } from './helpers'
+import { findTodaysDate, formatTodaysDate, findDay, findEndOfWeek } from './helpers'
 
 describe('helpers', () => {
   describe('findTodaysDate', () => {
@@ -27,7 +27,17 @@ describe('helpers', () => {
       const mockDay = '2019-11-04';
       const expectedResponse = 'Monday';
 
-      const mockAction = formatTodaysDate(mockDay);
+      const mockAction = findDay(mockDay);
+      expect(mockAction).toEqual(expectedResponse);
+    });
+  });
+
+  describe('findEndOfWeek', () => {
+    it('should find day of the week', () => {
+      const mockDay = '2019-11-04';
+      const expectedResponse = '2019-11-11';
+
+      const mockAction = findEndOfWeek(mockDay);
       expect(mockAction).toEqual(expectedResponse);
     });
   });

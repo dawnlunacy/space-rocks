@@ -27,9 +27,9 @@ export const findDay = () => {
 export const findEndOfWeek = (startDate) => {
   let startingDate;
   if (startDate === undefined) {
-   startingDate = new Date()
+   startingDate = new Date(Date.now())
   } else {
-    startingDate = new Date(startDate);
+    startingDate = new Date(Date.now(startDate));
   }
   const endDateRaw = startingDate.setDate(startingDate.getDate() + 7)
   const endingDate = formatDateForFetch(endDateRaw)

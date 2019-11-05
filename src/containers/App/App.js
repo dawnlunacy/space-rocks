@@ -1,9 +1,11 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom';
 import { Header } from '../Header/Header';
 import { Nav } from '../Nav/Nav';
 import AsteroidContainer from '../AsteroidContainer/AsteroidContainer';
+import ApodContainer from '../ApodContainer/ApodContainer';
 import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
 import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod, handleError } from '../../actions';
@@ -79,12 +81,24 @@ export class App extends Component {
    
     return (
       <div className = "App">
-        <Header />
-        <Nav />
-        {!loadingNeos && errorMessage === '' &&  <AsteroidContainer 
+        <Route exact path='/(asteroids|)/'  render={ () => 
+        <>
+          <Header />
+          <Nav />
+          {!loadingNeos && errorMessage === '' &&  <AsteroidContainer 
           displayDateSelectedNeos={this.displayDateSelectedNeos}
           startDateHelper={this.startDateHelper}/> }
-        { errorMessage !== '' && <h5> {errorMessage } </h5> }
+          { errorMessage !== '' && <h5> {errorMessage } </h5> }
+        </> }/>
+
+        <Route exact path='/apod' render={ () => 
+        <>
+          <Header />
+          <Nav />
+          <ApodContainer />
+          {/* {!loadingNeos && errorMessage === '' &&  <ApodContainer /> } */}
+          { errorMessage !== '' && <h5> {errorMessage } </h5> }
+        </> }/> 
       </div>
     )
   }

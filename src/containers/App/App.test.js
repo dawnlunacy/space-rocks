@@ -105,10 +105,22 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     });
 
+    it('should call dispatch with a setPrevWeek action when saveNeosHelper is called', () => {
+      const mockDispatch = jest.fn();
+      const mockResponse = 'url'
+
+      const actionToDispatch = setPrevWeek(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setPrevWeek(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
 
 
 
-    
+
+
   });
 });
 

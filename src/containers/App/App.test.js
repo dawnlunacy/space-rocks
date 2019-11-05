@@ -129,6 +129,19 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     });
 
+    it('should call dispatch with a updateLoading action when saveNeosHelper is called', () => {
+      const mockDispatch = jest.fn();
+      const mockResponse = false
+
+      const actionToDispatch = updateLoading(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.isLoadingNeos(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
+
 
 
 

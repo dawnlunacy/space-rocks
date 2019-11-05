@@ -1,4 +1,4 @@
-import helpers from './helpers';
+import helpers, { formatDateForFetch } from './helpers';
 import { findTodaysDate, formatTodaysDate, findDay, findEndOfWeek } from './helpers'
 
 describe('helpers', () => {
@@ -41,4 +41,15 @@ describe('helpers', () => {
       expect(mockAction).toEqual(expectedResponse);
     });
   });
+  
+  describe('formatDateForFetch', () => {
+    it('should format the date to yyyy-mm-dd', () => {
+      const mockDay = '2019/11/04';
+      const expectedResponse = '2019-11-04';
+
+      const mockAction = formatDateForFetch(mockDay);
+      expect(mockAction).toEqual(expectedResponse);
+    });
+  });
+  
 })

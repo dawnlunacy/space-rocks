@@ -91,9 +91,25 @@ describe('App', () => {
       mappedProps.setNeos(mockResponse);
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
-  })
+    });
 
+    it('should call dispatch with a setTotalNeos action when saveNeosHelper is called', () => {
+      const mockDispatch = jest.fn();
+      const mockResponse = 20
+
+      const actionToDispatch = setTotalNeos(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setTotalNeos(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
+
+
+
+    
+  });
 });
 
 

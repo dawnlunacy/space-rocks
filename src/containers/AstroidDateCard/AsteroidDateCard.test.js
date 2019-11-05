@@ -27,5 +27,5 @@ describe('AsteroidDateContainer', () => {
     wrapper.find('button').simulate('click', mockEvent);
     
     expect(mockDisplayDateSelectedNeos).toHaveBeenCalledWith(mockEvent);
-  })
+  });
 });

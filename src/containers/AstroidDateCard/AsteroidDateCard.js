@@ -1,5 +1,6 @@
 import React from 'react';
 import './AsteroidDateCard.css';
+import PropTypes from 'prop-types';
 
 export const AsteroidDateCard = ({date, totalNeosOnDate, displayDateSelectedNeos}) => {
  
@@ -13,3 +14,9 @@ export const AsteroidDateCard = ({date, totalNeosOnDate, displayDateSelectedNeos
 };
 
 export default AsteroidDateCard;
+
+AsteroidDateCard.propTypes = {
+  date: PropTypes.string,
+  totalNeosOnDate: PropTypes.number,
+  displayDateSelectedNeos: PropTypes.func
+}

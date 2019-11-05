@@ -4,6 +4,7 @@ import '../AsteroidContainer/AsteroidContainer.css';
 import AsteroidCard from '../AsteroidCard/AsteroidCard';
 import AsteroidDateCard from '../AstroidDateCard/AsteroidDateCard';
 import DatePicker from 'react-date-picker';
+import PropTypes from 'prop-types';
 
 export const AsteroidContainer = ({ apod, neos, displayDateSelectedNeos,currentNeoDate, startDateHelper, startDate}) => {
 
@@ -62,3 +63,12 @@ export const mapStateToProps = state => ({
 
 
 export default connect(mapStateToProps, null)(AsteroidContainer);
+
+AsteroidContainer.propTypes = {
+  apod: PropTypes.object,
+  neos: PropTypes.object,
+  displayDateSelectedNeos: PropTypes.func,
+  currentNeoDate: PropTypes.string,
+  startDateHelper: PropTypes.func,
+  startDate: PropTypes.string
+}

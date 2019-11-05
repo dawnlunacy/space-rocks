@@ -30,6 +30,7 @@ describe('App', () => {
   fetchAPOD.mockImplementation(() => Promise.resolve(mockUnfilteredApodResponse));
   fetchNEO.mockImplementation(() => Promise.resolve(mockNeoDataUnfiltered));
 
+
   beforeEach(() => {
     wrapper = shallow(<App 
       loadingNeos={true}
@@ -44,6 +45,7 @@ describe('App', () => {
       handleError={mockHandleError}
 
       />);
+
   });
 
   it('should match the snapshot', () => {
@@ -194,6 +196,16 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     });
   });
+
+  it.skip('should call getApod and saveNeosHelper after mounting', () => {
+    wrapper.instance().getApod = jest.fn();
+    // wrapper.instance().forceUpdate();
+    // wrapper.instance().saveNeosHelper = jest.fn();
+
+    expect(wrapper.instance().getApod).toHaveBeenCalled()
+  });
+
+
 });
 
 

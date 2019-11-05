@@ -1,9 +1,9 @@
 export const findTodaysDate = (day) => {
   let today;
   if (day === undefined) {
-    today = new Date();
+    today = new Date(Date.now());
   } else {
-    today = new Date(day)
+    today = new Date(Date.now(day))
   }
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');

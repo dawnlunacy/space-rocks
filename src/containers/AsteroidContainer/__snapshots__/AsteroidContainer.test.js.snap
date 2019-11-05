@@ -92,43 +92,43 @@ exports[`AsteroidContainer should match the snapshot 1`] = `
     <article
       className="neo-weekday"
     >
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-07"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-07"
         totalNeosOnDate={9}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-06"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-06"
         totalNeosOnDate={16}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-09"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-09"
         totalNeosOnDate={2}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-08"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-08"
         totalNeosOnDate={8}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-03"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-03"
         totalNeosOnDate={7}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-05"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-05"
         totalNeosOnDate={7}
       />
-      <Connect(AsteroidDateCard)
+      <AsteroidDateCard
         date="2019-11-04"
         displayDateSelectedNeos={[MockFunction]}
         key="2019-11-04"

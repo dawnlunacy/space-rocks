@@ -16,6 +16,7 @@ describe('App', () => {
   const mockSetStartDate = jest.fn();
   const mockSetApod = jest.fn();
 
+
   beforeEach(() => {
     wrapper = shallow(<App 
       loadingNeos={true}
@@ -28,11 +29,20 @@ describe('App', () => {
       setStartDate={mockSetStartDate}
       setApod={mockSetApod}
       />);
+
   });
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  
+  it.skip('should call getApod and saveNeosHelper after mounting', () => {
+    wrapper.instance().getApod = jest.fn();
+    // wrapper.instance().forceUpdate();
+    // wrapper.instance().saveNeosHelper = jest.fn();
+
+    expect(wrapper.instance().getApod).toHaveBeenCalled()
+  });
+
+
 });

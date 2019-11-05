@@ -22,4 +22,11 @@ describe('AsteroidDateContainer', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call displayDateSelectedNeos with an event when clicked', () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.find('button').simulate('click', mockEvent);
+    
+    expect(mockDisplayDateSelectedNeos).toHaveBeenCalledWith(mockEvent);
+  })
 });

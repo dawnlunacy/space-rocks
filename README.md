@@ -26,8 +26,17 @@ In the project directory, you can run:
     - View of an individual information card to an asteroid.
     ![Individual Card View Space Rocks Wire Frame](src/images/Screen_Shot_Asteroid_Card_WireFrame.png)
 
-    
-    
+
+-DOM Display:
+  -Space Rocks asteroid page loads with the current week. Nasa's Astronomy picture of the day is the background image and it updates daily. 
+![Space Rocks asteroid page loads with the current week](src/images/Weekly_View_Default.png)
+
+  -Space Rocks asteroid page allows you to search the NASA API by week. 
+![Space Rocks asteroid page allows search by picking a start date](src/images/Search_By_Week)
+
+  -Space Rocks asteroid page allows you click on a date and see and NEOs for that day
+![Space Rocks asteroid page allows you click on a date and see and NEOs for that day](src/images/Asteroid_Card_View)
+
 
 
 Runs the app in the development mode.<br />

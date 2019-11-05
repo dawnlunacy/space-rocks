@@ -18,25 +18,25 @@ Space Rocks is a React-Redux App that uses the [NASA Astronomy Picture of the Da
 
 ### ScreenShots
   WireFrames made in InVision Studio
-  - Weekly view of asteroids found from query.
+  - Weekly view of asteroids found from query:
     ![Weekly View Space Rocks Wire Frame](src/images/Screen_Shot_Week_WireFrame.png)
 
-    - View of an individual information card to an asteroid.
+  - View of an individual information card to an asteroid:
 
     ![Individual Card View Space Rocks Wire Frame](src/images/Screen_Shot_Asteroid_Card_WireFrame.png)
 
 
   DOM Display:
-  - Space Rocks asteroid page loads with the current week. Nasa's Astronomy picture of the day is the background image and it updates daily. 
+  - Space Rocks asteroid page loads with the current week. Nasa's Astronomy picture of the day is the background image and it updates daily:
 ![Space Rocks asteroid page loads with the current week](src/images/Weekly_View_Default.png)
 
-  - Space Rocks asteroid page allows you to search the NASA API by week. 
+  - Space Rocks asteroid page allows you to search the NASA API by week:
 ![Space Rocks asteroid page allows search by picking a start date](src/images/Search_By_Week.png)
 
-  - Space Rocks asteroid page allows you click on a date and see and NEOs for that day
+  - Space Rocks asteroid page allows you click on a date and see and NEOs for that day:
 ![Space Rocks asteroid page allows you click on a date and see and NEOs for that day](src/images/Asteroid_Card_View.png)
 
-  - Space Rocks even has error handling if the API does not respond
+  - Space Rocks even has error handling if the API does not respond:
 ![Space Rocks Error Handling](src/images/Error_Handling.png)
 
 

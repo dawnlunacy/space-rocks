@@ -15,7 +15,7 @@ exports[`AsteroidDateContainer should match snapshot 1`] = `
     className="neo-total-for-date"
   >
      Total NEOs: 
-    <Component />
+    27
      
   </h4>
   <button

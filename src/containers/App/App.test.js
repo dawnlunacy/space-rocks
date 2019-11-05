@@ -23,7 +23,6 @@ describe('App', () => {
   const mockSetCurrentNeoData = jest.fn();
   const mockSetStartDate = jest.fn();
   const mockSetApod = jest.fn();
-  const mockFindEndOfWeek = jest.fn();
   const mockHandleError = jest.fn();
   
 

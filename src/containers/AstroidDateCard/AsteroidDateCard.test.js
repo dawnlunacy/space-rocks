@@ -7,14 +7,13 @@ describe('AsteroidDateContainer', () => {
   let wrapper;
 
   const mockDisplayDateSelectedNeos = jest.fn();
-  const mockTotalNeosOnDate = jest.fn();
   
   beforeEach(() => {
     wrapper = shallow(<AsteroidDateCard
       neos={mockCleanNeos} 
       currentNeoDate={'2019-11-07'}
       date={'2019-11-04'}
-      totalNeosOnDate={mockTotalNeosOnDate}
+      totalNeosOnDate={27}
       displayDateSelectedNeos={mockDisplayDateSelectedNeos}
     />)
   });
@@ -28,5 +27,5 @@ describe('AsteroidDateContainer', () => {
     wrapper.find('button').simulate('click', mockEvent);
     
     expect(mockDisplayDateSelectedNeos).toHaveBeenCalledWith(mockEvent);
-  })
+  });
 });

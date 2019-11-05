@@ -37,7 +37,7 @@ describe('helpers', () => {
   describe('findEndOfWeek', () => {
     it('should find day of the week', () => {
       const mockDay = '2019-11-04';
-      const expectedResponse = '2019-11-11';
+      const expectedResponse = '2019-11-10';
 
       const mockAction = findEndOfWeek(mockDay);
       expect(mockAction).toEqual(expectedResponse);

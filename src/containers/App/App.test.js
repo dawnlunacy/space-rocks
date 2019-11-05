@@ -77,8 +77,8 @@ describe('App', () => {
       const mappedProps = mapStateToProps(mockState);
       
       expect(mappedProps).toEqual(expected)
-    })
-  })
+    });
+  });
   
   describe('mapDispatchToProps', () => {
     it('should call dispatch with a setNeos action when saveNeosHelper is called', () => {
@@ -165,11 +165,34 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     });
 
+    it('should call dispatch with a setApod action when getApod is called', () => {
+      const mockDispatch = jest.fn();
+      const backgroundImg = 'https:wwww.APOD.com'
+      const mockResponse =  {
+        backgroundImage:`url(${backgroundImg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }
 
+      const actionToDispatch = setApod(mockResponse);
 
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setApod(mockResponse);
 
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
 
+    it('should call dispatch with a handleError action when saveNeosHelper is called and a bad reponse is recieved from fetch', () => {
+      const mockDispatch = jest.fn()
+      const mockResponse =  "ERROR FETCHING"
 
+      const actionToDispatch = handleError(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.handleError(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
   });
 });
 

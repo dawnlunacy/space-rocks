@@ -4,11 +4,15 @@ exports[`App should match the snapshot 1`] = `
 <div
   className="App"
 >
-  <Header />
-  <Nav />
-  <h5>
-     
-     
-  </h5>
+  <Route
+    exact={true}
+    path="/(asteroids|)/"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/apod"
+    render={[Function]}
+  />
 </div>
 `;

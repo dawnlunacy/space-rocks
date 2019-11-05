@@ -12,10 +12,20 @@ describe('helpers', () => {
     }) 
   });
 
-  describe('findDay', () => {
+  describe('formatTodaysDate', () => {
     it('should format date to make readable for user', () => {
       const mockDay = '2019-11-04';
       const expectedResponse = 'Nov 04 2019';
+
+      const mockAction = formatTodaysDate(mockDay);
+      expect(mockAction).toEqual(expectedResponse);
+    });
+  });
+
+  describe('findDay', () => {
+    it('should find day of the week', () => {
+      const mockDay = '2019-11-04';
+      const expectedResponse = 'Monday';
 
       const mockAction = formatTodaysDate(mockDay);
       expect(mockAction).toEqual(expectedResponse);

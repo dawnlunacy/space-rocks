@@ -5,7 +5,10 @@ import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { mockUnfilteredApodResponse } from '../../utils/mockData';
 import { mockNeoDataUnfiltered } from '../../utils/mockNeoDataUnfiltered';
 // import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { findDay } from '../../utils/helpers';
+import { findDay, cleanNeoData } from '../../utils/helpers';
+import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod, handleError } from '../../actions';
+import { mockCleanNeos } from '../../utils/mockData';
+
 
 jest.mock('../../utils/apiCalls');
 // jest.mock('../../utils/helpers');
@@ -57,21 +60,40 @@ describe('App', () => {
     expect(wrapper.instance().findEndOfWeek).toHaveBeenCalledWith(mockStartDate)
   })
 
-  it('should return an object with loading and error info', () => {
-    const mockLoading = false;
-    const mockErrorMessage = "Error loading, please try again"
-    const mockState = {
-      loadingNeos: false,
-      errorMessage: "Error loading, please try again"
-    }
+  describe('mapStateToProps', () => {
+    it('should return an object with loading and error info', () => {
+      const mockLoading = false;
+      const mockErrorMessage = "Error loading, please try again"
+      const mockState = {
+        loadingNeos: false,
+        errorMessage: "Error loading, please try again"
+      }
 
-    const expected = {
-      loadingNeos: mockLoading,
-      errorMessage: mockErrorMessage
-    }
+      const expected = {
+        loadingNeos: mockLoading,
+        errorMessage: mockErrorMessage
+      }
 
-    const mappedProps = mapStateToProps(mockState);
-    
-    expect(mappedProps).toEqual(expected)
+      const mappedProps = mapStateToProps(mockState);
+      
+      expect(mappedProps).toEqual(expected)
+    })
   })
+  
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with a setNeos action when saveNeosHelper is called', () => {
+      const mockDispatch = jest.fn();
+      const mockResponse = mockCleanNeos;
+
+      const actionToDispatch = setNeos(mockResponse);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setNeos(mockResponse);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+  })
+
 });
+
+

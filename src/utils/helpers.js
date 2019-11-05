@@ -13,7 +13,7 @@ export const findTodaysDate = (day) => {
 }
 
 export const formatTodaysDate = (date) => {
-  let formatDate = new Date(date).toString().split(' ').slice(1, 4).join(' ')
+  let formatDate = new Date(Date.now(date)).toString().split(' ').slice(1, 4).join(' ')
   return formatDate
 }
 

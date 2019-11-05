@@ -1,4 +1,4 @@
-import helpers, { formatDateForFetch } from './helpers';
+import { formatDateForFetch } from './helpers';
 import { findTodaysDate, formatTodaysDate, findDay, findEndOfWeek, cleanNeoData } from './helpers';
 import { mockNeoDataUnfiltered } from '../utils/mockNeoDataUnfiltered';
 import { mockCleanNeos } from '../utils/mockData';

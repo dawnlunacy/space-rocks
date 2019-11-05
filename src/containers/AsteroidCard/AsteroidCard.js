@@ -1,7 +1,7 @@
 import React from 'react';
 import './AsteroidCard.css';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const AsteroidCard = ({id, name, nasaUrl, isPotentiallyHazardous, estimatedDiameterMin, estimatedDiameterMax, closeApproachDate, relativeVelocity, missEarthDistance}) => {
   
@@ -37,5 +37,7 @@ AsteroidCard.propTypes = {
   estimatedDiameterMax: PropTypes.number,
   closeApproachDate: PropTypes.string,
   relativeVelocity: PropTypes.string,
-  missEarthDistance: PropTypes.string
+  missEarthDistance: PropTypes.string,
+  neos: PropTypes.object,
+  currentNeoDate: PropTypes.string
 }

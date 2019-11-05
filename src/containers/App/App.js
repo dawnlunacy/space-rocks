@@ -8,6 +8,7 @@ import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
 import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod, handleError } from '../../actions';
 import './App.css';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
 
@@ -107,3 +108,17 @@ export const mapDispatchToProps = dispatch => ({
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+  loadingNeos: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  setNeos: PropTypes.func,
+  setTotalNeos: PropTypes.func,
+  setPrevWeek: PropTypes.func,
+  setNextWeek: PropTypes.func,
+  isLoadingNeos: PropTypes.func,
+  setCurrentNeoDate: PropTypes.func,
+  setStartDate: PropTypes.func,
+  setApod: PropTypes.func,
+  handleError: PropTypes.func
+}

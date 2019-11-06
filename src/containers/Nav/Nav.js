@@ -7,7 +7,10 @@ export const Nav = () => {
   return (
     <nav className="main-nav">
       <NavLink to= '/asteroids' > 
-        <button className="asteroid-btn"> Asteroids </button> 
+        <button className="asteroid-btn nav-btn"> Asteroids </button> 
+      </NavLink>
+      <NavLink to= '/apod' > 
+        <button className="apod-btn nav-btn"> APOD </button> 
       </NavLink>
     </nav>
   )

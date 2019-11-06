@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './ApodContainer.css';
 
 export const ApodContainer = ({ apod }) => {
-  console.log("APOD", apod)
+
   return (
     <section className="apod-container" style= { apod }>
       <div className="apod-info"> 

@@ -5,7 +5,6 @@ import { fetchAPOD, fetchNEO } from '../../utils/apiCalls';
 import { mockUnfilteredApodResponse } from '../../utils/mockData';
 import { mockNeoDataUnfiltered } from '../../utils/mockNeoDataUnfiltered';
 // import { formatDateForFetch, findEndOfWeek, cleanNeoData } from '../../utils/helpers';
-import { findDay, cleanNeoData } from '../../utils/helpers';
 import { setNeos, setTotalNeos, setPrevWeek, setNextWeek, updateLoading, setCurrentNeoDate, setStartDate, setApod, handleError } from '../../actions';
 import { mockCleanNeos } from '../../utils/mockData';
 
@@ -51,15 +50,15 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it.skip('should call the correct methods when saveNeosHelper', () => {
-    const mockStartDate = '2019-11-03';
-    const mockEndDate = '2019-11-10';
-    wrapper.instance().findEndOfWeek = jest.fn()
+  // it.skip('should call the correct methods when saveNeosHelper', () => {
+  //   const mockStartDate = '2019-11-03';
+  //   const mockEndDate = '2019-11-10';
+  //   wrapper.instance().findEndOfWeek = jest.fn()
 
-     wrapper.instance().saveNeosHelper(mockStartDate);
-    expect(wrapper.instance().findEndOfWeek).toHaveBeenCalled()
-    expect(wrapper.instance().findEndOfWeek).toHaveBeenCalledWith(mockStartDate)
-  })
+  //    wrapper.instance().saveNeosHelper(mockStartDate);
+  //   expect(wrapper.instance().findEndOfWeek).toHaveBeenCalled()
+  //   expect(wrapper.instance().findEndOfWeek).toHaveBeenCalledWith(mockStartDate)
+  // })
 
   describe('mapStateToProps', () => {
     it('should return an object with loading and error info', () => {

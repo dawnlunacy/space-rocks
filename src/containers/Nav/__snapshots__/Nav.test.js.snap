@@ -8,9 +8,18 @@ exports[`Nav should match the snapshot 1`] = `
     to="/asteroids"
   >
     <button
-      className="asteroid-btn"
+      className="asteroid-btn nav-btn"
     >
        Asteroids 
+    </button>
+  </NavLink>
+  <NavLink
+    to="/apod"
+  >
+    <button
+      className="apod-btn nav-btn"
+    >
+       APOD 
     </button>
   </NavLink>
 </nav>

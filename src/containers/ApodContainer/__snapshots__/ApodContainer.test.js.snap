@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApodContainer should match the snapshot 1`] = `
+<section
+  className="apod-container"
+  style={Object {}}
+>
+  <div
+    className="apod-info"
+  >
+    <p
+      className="apod-description"
+    >
+       The background image you see here is the Astronomy Picture of the Day from NASA 
+    </p>
+  </div>
+</section>
+`;

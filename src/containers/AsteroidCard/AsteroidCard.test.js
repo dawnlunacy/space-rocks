@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AsteroidCard, mapStateToProps} from '../AsteroidCard/AsteroidCard';
+import { AsteroidCard } from '../AsteroidCard/AsteroidCard';
 import { mockCleanNeos } from '../../utils/mockData';
 
 describe('AsteroidCard', () => {
